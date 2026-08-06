@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bulletin board palette */
+    --cork: 36 38% 63%;
+    --kraft: 38 37% 84%;
+    --paper: 36 43% 96%;
+    --ink: 25 26% 12%;
+    --stamp-red: 9 63% 44%;
+    --stamp-red-dark: 9 63% 35%;
+    --forest: 91 27% 32%;
+    --forest-dark: 91 27% 25%;
+    --shadow: 25 26% 12%;
+
+    --background: 36 43% 96%;
+    --foreground: 25 26% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 26% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 26% 12%;
+    --primary: 9 63% 44%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 38 37% 84%;
+    --secondary-foreground: 25 26% 12%;
+    --muted: 38 37% 84%;
+    --muted-foreground: 25 18% 38%;
+    --accent: 91 27% 32%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 9 63% 44%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 25 22% 75%;
+    --input: 25 22% 85%;
+    --ring: 9 63% 44%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-paper text-ink font-sans;
+  }
+  h1, h2, h3 {
+    font-family: 'Lora', Georgia, serif;
+  }
+}
+
+/* Respect reduced motion for the bulletin-board lift effects */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes formStepIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
