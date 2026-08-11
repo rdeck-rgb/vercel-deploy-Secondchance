@@ -66,11 +66,15 @@ function AuditHero() {
               </p>
             </TornCard>
             <div className="mt-8 hidden lg:block">
+              {/* tall portrait in a 4:3 frame — anchor the crop high so the
+                  faces (top third of the photo) stay in view */}
               <Polaroid
                 src="/images/photos/two-closeup.jpg"
                 alt="Golden retriever and Bernese mountain dog lying cheek to cheek on the living room floor"
                 caption="Best friends waiting for answers"
                 rotation={-2}
+                size="lg"
+                objectPosition="center 12%"
               />
             </div>
           </div>
