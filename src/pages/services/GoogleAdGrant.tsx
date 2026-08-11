@@ -16,6 +16,7 @@ export default function GoogleAdGrant() {
           sub: `Google has offered registered nonprofits $10,000 a month in free advertising since 2003. It's real. Most 501(c)(3) animal organizations qualify — rescues, humane societies, wildlife sanctuaries, zoos, veterinary nonprofits, and specialty animal programs. The catch is a rulebook written for advertising people — and that's the part we handle, explained here in words a board member can read closely.`,
           priceNote: '$395/month for management. The $10K in ads is free, always.',
           heroImage: '/images/photos/bowties.jpg',
+          heroImagePosition: 'center 10%',
           heroImageAlt: 'Two rescue dogs — a Bernese mountain dog and a golden retriever — sitting side by side in matching plaid bow ties',
           trustPoints: ['Free eligibility check first', 'Full compliance handled', 'Plain-English reports'],
           stats: [

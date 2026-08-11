@@ -79,6 +79,32 @@
   animation-play-state: paused;
 }
 
+/* One-shot scroll reveal for pinned board items (driven by useReveal in
+   BoardElements). Animates the standalone `translate` property so it composes
+   with the rotate/hover transforms the cards already carry, instead of
+   overriding them mid-flight. */
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.reveal-hidden {
+  opacity: 0;
+}
+
+.reveal-shown {
+  animation: reveal-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* never hide content for reduced-motion users waiting on an animation */
+  .reveal-hidden {
+    opacity: 1;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

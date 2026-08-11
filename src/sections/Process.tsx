@@ -39,18 +39,25 @@ export function Process() {
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, i) => (
-            <TornCard key={s.title} className="p-6 relative" torn="bottom">
+            <TornCard key={s.title} className="p-6 relative bg-white border border-ink/10" torn="bottom">
               <div className="absolute -top-3 left-6">
                 <PushPin className="h-5 w-5" />
               </div>
-              <div className="relative">
+              {/* The step number reads as part of the card — a large tinted
+                  numeral opposite the icon — rather than a small badge stuck
+                  on its corner. */}
+              <div className="flex items-center justify-between">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-forest text-white shadow-[0_4px_0_rgba(42,31,22,0.12)]">
                   <s.icon className="h-7 w-7" />
                 </div>
-                <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-stamp-red text-xs font-bold text-white font-mono">
+                <span
+                  className="select-none font-serif text-6xl font-bold leading-none text-forest/15"
+                  aria-hidden="true"
+                >
                   {i + 1}
                 </span>
               </div>
+              <span className="sr-only">Step {i + 1} of {STEPS.length}</span>
               <h3 className="mt-5 text-lg font-bold text-ink font-serif">{s.title}</h3>
               <p className="mt-3 text-sm text-ink/70 leading-relaxed">{s.body}</p>
             </TornCard>

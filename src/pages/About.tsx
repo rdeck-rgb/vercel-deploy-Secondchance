@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ArrowRight, ChevronRight, PawPrint } from 'lucide-react'
+import { ArrowRight, PawPrint } from 'lucide-react'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { Footer } from '@/sections/Footer'
@@ -15,11 +15,6 @@ export default function About() {
         {/* Hero — first person */}
         <CorkBoard className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-1.5 text-xs text-paper/70 mb-8">
-              <Link to="/" className="hover:text-white">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-paper/90">About</span>
-            </nav>
             <div className="grid gap-10 lg:grid-cols-2 items-start">
               <TornCard className="p-8 sm:p-10 relative">
                 <div className="absolute -top-3 left-8">
@@ -39,15 +34,16 @@ export default function About() {
               </TornCard>
               <div className="flex flex-wrap justify-center lg:justify-end gap-5">
                 <Polaroid
-                  src="/images/photos/melanie-dogs.png"
-                  alt="Melanie on the couch with her golden retriever and Bernese mountain dog"
+                  src="/images/photos/melanie.jpg"
+                  alt="Melanie on the couch with Archie and Georgie"
                   caption="Melanie & the crew"
                   rotation={2}
-                  size="lg"
+                  size="xl"
+                  objectPosition="center 35%"
                 />
                 <Polaroid
-                  src="/images/photos/archie-service.png"
-                  alt="Archie, a golden retriever service dog, visiting with a patient in a wheelchair"
+                  src="/images/photos/archie-therapy.jpg"
+                  alt="Archie in his canine therapy bandana, visiting residents at a care facility"
                   caption="Archie on the job"
                   rotation={-2}
                   size="md"
@@ -101,8 +97,8 @@ export default function About() {
             </div>
             <div className="flex flex-col items-center gap-8 md:gap-10">
               <Polaroid
-                src="/images/photos/IMG_4235.JPEG"
-                alt="Melanie on the couch with her dogs"
+                src="/images/photos/IMG_4236.JPEG"
+                alt="Melanie on the couch with Archie and Georgie"
                 caption="Melanie & the crew"
                 rotation={-1}
                 size="xl"
@@ -111,21 +107,21 @@ export default function About() {
               />
               <div className="flex flex-wrap justify-center items-start gap-6 md:gap-10">
                 <Polaroid
-                  src="/images/photos/IMG_4236.JPEG"
-                  alt="Two dogs lying together"
-                  caption="Archie & Bernice"
+                  src="/images/photos/IMG_4235.JPEG"
+                  alt="Archie and Georgie lying together in their bed"
+                  caption="Archie and Georgie"
                   rotation={2}
                   size="lg"
                   aspect="landscape"
+                  objectPosition="center 10%"
                 />
                 <Polaroid
-                  src="/images/photos/IMG_7070.JPEG"
-                  alt="Service dog with a patient"
-                  caption="Archie on the job"
+                  src="/images/photos/IMG_8331.JPEG"
+                  alt="Georgie in his service vest, visiting a resident in a wheelchair"
+                  caption="Georgie on the job"
                   rotation={-2}
                   size="lg"
                   aspect="portrait"
-                  objectPosition="center 25%"
                 />
               </div>
               <div className="flex flex-wrap justify-center items-start gap-6 md:gap-10">
@@ -139,13 +135,12 @@ export default function About() {
                   objectPosition="center 20%"
                 />
                 <Polaroid
-                  src="/images/photos/IMG_8331.JPEG"
-                  alt="Bear the cat"
+                  src="/images/photos/IMG_7070.JPEG"
+                  alt="Bear the cat stretched out on a bed"
                   caption="Bear, 18 years young"
                   rotation={-1}
                   size="md"
                   aspect="portrait"
-                  objectPosition="center 30%"
                 />
               </div>
             </div>
@@ -168,7 +163,7 @@ export default function About() {
                   className="rounded-lg border-2 border-ink/10 object-cover shadow-[0_6px_0_rgba(42,31,22,0.08)] rotate-[1deg]"
                 />
               </div>
-              <TornCard className="p-8 relative" torn="bottom">
+              <TornCard className="p-8 relative bg-white border border-ink/10" torn="bottom">
                 <div className="absolute -top-3 left-8">
                   <PushPin className="h-5 w-5" />
                 </div>

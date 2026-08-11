@@ -16,6 +16,7 @@ export default function LocalSEO() {
           sub: `When someone in your community searches for a pet, Google shows a short list — and increasingly, AI assistants like ChatGPT answer with a single recommendation. Your rescue needs to be in both answers, or that adoption goes somewhere else. We make sure it's you, in plain English.`,
           priceNote: '$295/month. Live in 14 days.',
           heroImage: '/images/photos/golden-sit.jpg',
+          heroImagePosition: 'center 12%',
           heroImageAlt: 'Golden retriever sitting patiently on a wooden dock in front of green hedges',
           trustPoints: ['Done-for-you — no logins to learn', 'Built for 501(c)(3) rescues', 'Plain-English reports'],
           stats: [

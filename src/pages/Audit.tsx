@@ -7,7 +7,7 @@ import {
   CorkBoard,
   Stamp,
   TornCard,
-  WashiTape,
+  PushPin,
   Polaroid,
 } from '@/components/BoardElements'
 
@@ -20,37 +20,44 @@ const WHAT_HAPPENS = [
 
 function AuditHero() {
   return (
-    <section id="audit-form">
+    // scroll-mt clears the sticky header so the top of the form is visible
+    <section id="audit-form" className="scroll-mt-20">
       <CorkBoard className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
           <div className="lg:sticky lg:top-24">
-            <div className="flex items-center gap-3 mb-4">
-              <WashiTape color="green" />
-              <Stamp variant="green">Free Grant Eligibility Check</Stamp>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-paper leading-tight">
-              Find out if Google owes your rescue{' '}
-              <span className="text-kraft">$10,000 a month.</span>
-            </h1>
-            <p className="mt-6 text-lg text-paper/80 leading-relaxed max-w-lg">
-              Most 501(c)(3) animal organizations qualify — rescues, shelters, humane societies,
-              wildlife sanctuaries, zoos, veterinary nonprofits, TNR programs, and more — and most
-              have never heard of it. This check tells you where you stand, in plain English,
-              before you spend a penny on anything.
-            </p>
-            <p className="mt-8 text-sm font-bold uppercase tracking-widest text-kraft font-mono">
-              Exactly what happens after you submit
-            </p>
-            <TornCard className="mt-4 p-5">
-              {WHAT_HAPPENS.map((b, i) => (
-                <div key={b} className={`flex items-start gap-3 ${i !== WHAT_HAPPENS.length - 1 ? 'mb-3' : ''}`}>
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-forest text-xs font-bold text-paper font-mono">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm text-ink/70 leading-relaxed">{b}</span>
+            {/* On paper, not bare on the cork — cream text on tan cork sits
+                near 2:1 contrast, well under the 4.5:1 minimum. */}
+            <TornCard className="relative p-6 sm:p-8">
+              <div className="absolute -top-3 left-8">
+                <PushPin className="h-6 w-6" />
+              </div>
+              <Stamp variant="green" className="mb-4">Free Grant Eligibility Check</Stamp>
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-tight">
+                Find out if Google owes your rescue{' '}
+                <span className="text-stamp-red">$10,000 a month.</span>
+              </h1>
+              <p className="mt-6 text-lg text-ink/75 leading-relaxed">
+                Most 501(c)(3) animal organizations qualify — rescues, shelters, humane societies,
+                wildlife sanctuaries, zoos, veterinary nonprofits, TNR programs, and more — and most
+                have never heard of it. This check tells you where you stand, in plain English,
+                before you spend a penny on anything.
+              </p>
+              <div className="mt-8 border-t-2 border-dashed border-ink/10 pt-6">
+                <p className="text-sm font-bold uppercase tracking-widest text-ink/50 font-mono">
+                  Exactly what happens after you submit
+                </p>
+                <div className="mt-4 space-y-3">
+                  {WHAT_HAPPENS.map((b, i) => (
+                    <div key={b} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-forest text-xs font-bold text-paper font-mono">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm text-ink/70 leading-relaxed">{b}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </TornCard>
             <TornCard className="mt-5 p-4 bg-kraft">
               <p className="text-sm text-ink/70 leading-relaxed">

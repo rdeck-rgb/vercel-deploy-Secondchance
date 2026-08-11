@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowRight, Lock, Check, Loader2, CalendarCheck } from 'lucide-react'
-import { PushPin } from '@/components/BoardElements'
+import { PushPin, WashiTape, useReveal } from '@/components/BoardElements'
+import { submitLead, honeypotWrapCls } from '@/lib/leads'
 
 type FormData = {
   legalName: string
@@ -32,7 +33,11 @@ function PrivacyNote() {
 export function AuditForm() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [sendError, setSendError] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [hp, setHp] = useState('')
+  const startedAt = useRef(Date.now())
+  const { ref: revealRef, revealCls } = useReveal()
   const [data, setData] = useState<FormData>({
     legalName: '',
     ein: '',
@@ -56,18 +61,17 @@ export function AuditForm() {
     return Object.keys(e).length === 0
   }
 
-  const submit = () => {
+  const submit = async () => {
     if (!validate()) return
     setSubmitting(true)
-    const subject = encodeURIComponent(`[Grant Eligibility Check] ${data.legalName}`)
-    const body = encodeURIComponent(
-      `Legal Nonprofit Name: ${data.legalName}\nEIN: ${data.ein}\nWebsite: ${data.website}\nPrimary Contact: ${data.contactName}\nPhone: ${data.phone}\nEmail: ${data.email}`
-    )
-    window.location.href = `mailto:mdeck@adgrantconsultant.com?subject=${subject}&body=${body}`
-    setTimeout(() => {
-      setSubmitting(false)
-      setSubmitted(true)
-    }, 800)
+    setSendError(false)
+    const result = await submitLead('eligibility', data, { hp, startedAt: startedAt.current })
+    setSubmitting(false)
+    if (result === 'error') {
+      setSendError(true)
+      return
+    }
+    setSubmitted(true)
   }
 
   const err = (k: string) =>
@@ -101,10 +105,15 @@ export function AuditForm() {
   }
 
   return (
-    <div className="rounded-lg bg-paper border-2 border-dashed border-ink/10 shadow-[0_8px_0_rgba(42,31,22,0.08)] p-6 sm:p-8">
-      <div className="flex justify-center -mt-3 mb-4">
+    <div
+      ref={revealRef}
+      className={`relative rounded-lg bg-paper border-2 border-dashed border-ink/10 shadow-[0_8px_0_rgba(42,31,22,0.08)] p-6 sm:p-8 ${revealCls}`}
+    >
+      {/* pinned and taped to the board, like the hero card opposite it */}
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
         <PushPin className="h-6 w-6" />
       </div>
+      <WashiTape color="green" className="absolute -top-2 left-8 w-24 rotate-[-3deg]" />
 
       <div className="space-y-5">
         <div>
@@ -209,6 +218,30 @@ export function AuditForm() {
           </div>
 
         </div>
+
+        {/* Honeypot — off-screen so bots fill it, skipped by people and AT. */}
+        <div className={honeypotWrapCls} aria-hidden="true">
+          <label htmlFor="company-website">Company website</label>
+          <input
+            id="company-website"
+            name="company-website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={hp}
+            onChange={(e) => setHp(e.target.value)}
+          />
+        </div>
+
+        {sendError && (
+          <p className="text-sm font-medium text-stamp-red" role="alert">
+            Something went wrong sending that. Please try again, or email{' '}
+            <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
+              mdeck@adgrantconsultant.com
+            </a>
+            .
+          </p>
+        )}
 
         <button
           type="button"

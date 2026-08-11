@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { ArrowRight } from 'lucide-react'
 import { GiftIcon, MegaphonePawIcon, SearchPawIcon, GradCapPawIcon } from '@/components/AnimalIcons'
-import { TornCard, PushPin, Stamp } from '@/components/BoardElements'
+import { TornCard, WashiTape, Stamp } from '@/components/BoardElements'
 import { AlertCircle } from 'lucide-react'
 
 const SERVICES = [
@@ -39,6 +39,8 @@ const SERVICES = [
   },
 ]
 
+const TAPE_COLORS = ['green', 'red', 'kraft', 'ink'] as const
+
 export function Services() {
   return (
     <section id="services" className="bg-paper py-20 sm:py-28">
@@ -54,15 +56,20 @@ export function Services() {
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.map((s) => (
+          {SERVICES.map((s, i) => (
             <TornCard
               key={s.title}
-              className="group flex flex-col p-7 transition-all hover:-translate-y-1"
+              className="group flex flex-col p-7 transition-all hover:-translate-y-1 bg-white border border-ink/10"
             >
+              {/* taped up rather than pinned, matching the Results note —
+                  a different roll of tape per card, as on a real board */}
+              <WashiTape
+                color={TAPE_COLORS[i % TAPE_COLORS.length]}
+                className={`absolute -top-2.5 left-1/2 -translate-x-1/2 w-24 ${
+                  i % 2 === 0 ? 'rotate-[-3deg]' : 'rotate-[2deg]'
+                }`}
+              />
               <Link to={s.to} className="flex flex-col h-full">
-                <div className="flex justify-center -mt-3 mb-2">
-                  <PushPin className="h-5 w-5" />
-                </div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-forest text-paper">
                   <s.icon className="h-6 w-6" />
                 </div>

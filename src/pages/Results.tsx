@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { Footer } from '@/sections/Footer'
@@ -20,11 +20,6 @@ export default function Results() {
         {/* Hero */}
         <CorkBoard className="py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-            <nav className="flex items-center justify-center gap-1.5 text-xs text-paper/60 mb-8 font-mono uppercase tracking-wider">
-              <Link to="/" className="hover:text-forest">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-paper">Real Wins</span>
-            </nav>
             <div className="flex items-center justify-center gap-3 mb-6">
               <WashiTape color="green" className="w-16" />
               <Stamp variant="green">Stories with proof</Stamp>

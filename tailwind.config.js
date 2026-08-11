@@ -8,6 +8,7 @@ module.exports = {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Lora', 'Georgia', 'serif'],
         mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+        signature: ['"Great Vibes"', 'cursive'],
       },
       backgroundImage: {
         'cork-texture': "url('/images/cork.png')",

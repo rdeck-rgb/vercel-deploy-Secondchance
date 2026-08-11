@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router'
-import { TornCard, PushPin, Stamp } from '@/components/BoardElements'
+import { TornCard, PushPin, Stamp, IndexCard, WashiTape } from '@/components/BoardElements'
 
 export function Results() {
   return (
@@ -16,16 +16,16 @@ export function Results() {
         </p>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 max-w-4xl">
-          <TornCard className="p-8 relative">
-            <div className="absolute -top-3 left-8">
-              <PushPin className="h-5 w-5" />
+          <IndexCard className="px-8 pb-8 pt-14 relative rotate-[-1deg]">
+            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+              <WashiTape color="red" className="w-28 rotate-[-2deg]" />
             </div>
-            <p className="text-base text-ink/70 leading-relaxed">
+            <p className="text-base text-ink/75 leading-[26px]">
               We're in the early days. Every client result gets documented — with real numbers,
               real names, and written permission — before it goes on this page. The first stories
               are being written now.
             </p>
-          </TornCard>
+          </IndexCard>
           <TornCard className="p-8 relative bg-kraft/60">
             <div className="absolute -top-3 left-8">
               <PushPin className="h-5 w-5" />

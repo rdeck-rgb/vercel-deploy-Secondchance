@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 import { PageMeta } from '@/components/PageMeta'
 import { SiteHeader } from '@/components/SiteHeader'
@@ -122,12 +122,6 @@ export default function Services() {
         {/* WHO WE HELP — corkboard intro */}
         <CorkBoard className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-1.5 text-xs text-paper/70 mb-8">
-              <Link to="/" className="hover:text-white">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-paper/90">What We Do</span>
-            </nav>
-
             <div className="grid gap-8 lg:grid-cols-12">
               <div className="lg:col-span-7">
                 <TornCard className="p-8 sm:p-10 relative">
