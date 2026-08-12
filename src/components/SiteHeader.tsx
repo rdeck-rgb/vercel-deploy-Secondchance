@@ -162,13 +162,24 @@ export function SiteHeader() {
             </Link>
           </div>
 
-          <button
-            className="lg:hidden text-ink"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          {/* Mobile: tap-to-call sits left of the hamburger, mirroring the
+              desktop phone link. 40px hit areas keep both comfortably tappable. */}
+          <div className="flex items-center gap-1 lg:hidden">
+            <a
+              href="tel:+13057091382"
+              className="flex h-10 w-10 items-center justify-center rounded-md text-ink/70 hover:text-stamp-red transition-colors"
+              aria-label="Call SecondChance Media at 305-709-1382"
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+            <button
+              className="flex h-10 w-10 items-center justify-center text-ink"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
+            >
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {open && (

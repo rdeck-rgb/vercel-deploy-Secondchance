@@ -1,5 +1,5 @@
 import { Check, X, HelpCircle } from 'lucide-react'
-import { TornCard, PushPin, Stamp, WashiTape } from '@/components/BoardElements'
+import { TornCard, PushPin, Stamp } from '@/components/BoardElements'
 
 const FIT_ITEMS = [
   { label: 'You are a 501(c)(3) animal welfare organization', fit: true },
@@ -33,7 +33,6 @@ export function Comparison() {
             <div className="absolute -top-3 left-8">
               <PushPin className="h-6 w-6" />
             </div>
-            <WashiTape color="green" className="absolute -top-2 right-8 rotate-[2deg]" />
             <h3 className="text-xl font-bold text-ink font-serif">This tends to be a fit when…</h3>
             <ul className="mt-6 space-y-4">
               {FIT_ITEMS.map((item) => (
@@ -51,7 +50,6 @@ export function Comparison() {
             <div className="absolute -top-3 right-8">
               <PushPin className="h-6 w-6" />
             </div>
-            <WashiTape color="red" className="absolute -top-2 left-8 rotate-[-2deg]" />
             <h3 className="text-xl font-bold text-ink font-serif">We may not be the right choice if…</h3>
             <ul className="mt-6 space-y-4">
               {NOT_FIT_ITEMS.map((item) => (

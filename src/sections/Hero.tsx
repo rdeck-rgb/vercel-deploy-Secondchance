@@ -13,7 +13,8 @@ export function Hero() {
               <TornCard className="p-8 sm:p-10 lg:p-12 relative">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <PushPin className="h-7 w-7" />
-                </div>              <WashiTape color="kraft" className="absolute -top-2 left-8 rotate-[-3deg]" />                <div className="mb-5 flex flex-wrap items-center gap-3">
+                </div>
+                <div className="mb-5 flex flex-wrap items-center gap-3">
                   <Stamp variant="red">501(c)(3) Only</Stamp>
                   <Stamp variant="green">$10,000/mo</Stamp>
                   <a
