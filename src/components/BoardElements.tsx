@@ -1,25 +1,115 @@
-import type { ReactNode } from 'react'
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { ExternalLink } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
+/**
+ * One-shot scroll reveal: returns a ref plus the class to apply. The element
+ * fades up (reveal-rise in index.css) the first time ~15% of it enters the
+ * viewport. Items already on screen at load reveal immediately, giving pages a
+ * soft entrance for free. Reduced-motion users see everything instantly — both
+ * here and via the CSS overrides.
+ */
+export function useReveal<T extends HTMLElement = HTMLDivElement>() {
+  const ref = useRef<T | null>(null)
+  const [shown, setShown] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShown(true)
+      return
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true)
+          io.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  return { ref, revealCls: shown ? 'reveal-shown' : 'reveal-hidden' }
+}
+
+// A classic spool-shaped plastic push pin seen at a slight angle: glossy domed
+// head, waist, base flange, steel needle disappearing into the board, soft cast
+// shadow. Gradient ids come from useId so the many pins on a page don't collide.
 export function PushPin({ className }: { className?: string }) {
+  const uid = useId()
+  const head = `${uid}-head`
+  const neck = `${uid}-neck`
+  const flange = `${uid}-flange`
+  const needle = `${uid}-needle`
   return (
     <svg
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-5 w-5', className)}
+      className={cn('relative z-10 h-5 w-5', className)}
       aria-hidden="true"
     >
-      <circle cx="16" cy="10" r="7" fill="#D94A2E" />
-      <circle cx="16" cy="10" r="7" fill="url(#pin-shine)" />
-      <path d="M16 17v10" stroke="#8B2E1A" strokeWidth="3" strokeLinecap="round" />
-      <path d="M11 30h10" stroke="#8B2E1A" strokeWidth="3" strokeLinecap="round" />
+      <g transform="rotate(-8 16 16)">
+        {/* shadow cast on the board */}
+        <ellipse cx="17.4" cy="28" rx="5.6" ry="1.7" fill="#2A1F16" opacity="0.25" />
+        {/* steel needle */}
+        <path d="M15.4 19.4 L16.1 28.1 L16.9 19.5 Z" fill={`url(#${needle})`} />
+        {/* waist between head and flange */}
+        <path
+          d="M12.3 9.8 C13.3 11.8 13.55 13.3 13.5 15.4 L18.5 15.4 C18.45 13.3 18.7 11.8 19.7 9.8 Z"
+          fill={`url(#${neck})`}
+        />
+        {/* contact shadow under the head */}
+        <rect x="9.6" y="9.8" width="12.8" height="1.2" rx="0.6" fill="#5E1A0C" opacity="0.4" />
+        {/* base flange */}
+        <rect x="10.3" y="15.1" width="11.4" height="4.5" rx="2" fill={`url(#${flange})`} />
+        {/* domed head */}
+        <rect
+          x="7.2"
+          y="2.8"
+          width="17.6"
+          height="7.4"
+          rx="3.4"
+          fill={`url(#${head})`}
+          stroke="#7E2712"
+          strokeOpacity="0.55"
+          strokeWidth="0.75"
+        />
+        {/* top plane of the head */}
+        <ellipse cx="16" cy="4.3" rx="8" ry="1.55" fill="#FFAB92" opacity="0.95" />
+        {/* specular highlight */}
+        <ellipse
+          cx="11.9"
+          cy="5.8"
+          rx="2.4"
+          ry="1"
+          fill="#FFFFFF"
+          opacity="0.65"
+          transform="rotate(-14 11.9 5.8)"
+        />
+      </g>
       <defs>
-        <radialGradient id="pin-shine" cx="0" cy="0" r="1" gradientTransform="translate(13 7) rotate(45) scale(10)">
-          <stop stopColor="#FF7A62" />
-          <stop offset="1" stopColor="#D94A2E" stopOpacity="0" />
-        </radialGradient>
+        <linearGradient id={head} x1="16" y1="2.8" x2="16" y2="10.2" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F76A4C" />
+          <stop offset="1" stopColor="#BC3A20" />
+        </linearGradient>
+        <linearGradient id={neck} x1="16" y1="9.8" x2="16" y2="15.4" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#A83318" />
+          <stop offset="1" stopColor="#7C2611" />
+        </linearGradient>
+        <linearGradient id={flange} x1="16" y1="15.1" x2="16" y2="19.6" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#E85A3D" />
+          <stop offset="1" stopColor="#922C17" />
+        </linearGradient>
+        <linearGradient id={needle} x1="16" y1="19.4" x2="16" y2="28.1" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D3CDC2" />
+          <stop offset="0.5" stopColor="#97917F" />
+          <stop offset="1" stopColor="#6A6459" />
+        </linearGradient>
       </defs>
     </svg>
   )
@@ -30,12 +120,13 @@ export function WashiTape({
   color = 'kraft',
 }: {
   className?: string
-  color?: 'kraft' | 'green' | 'red'
+  color?: 'kraft' | 'green' | 'red' | 'ink'
 }) {
   const colorClass = {
     kraft: 'bg-[#E8DCC4]/85',
     green: 'bg-forest/20',
     red: 'bg-stamp-red/20',
+    ink: 'bg-ink/15',
   }[color]
   return (
     <div
@@ -85,24 +176,82 @@ export function TornCard({
   className?: string
   torn?: 'bottom' | 'top' | 'none'
 }) {
+  // Tear depths are fixed pixels rather than percentages so the notch bites the
+  // same amount out of a short card and a tall one — a percentage tear on a tall
+  // card ate well past the padding and cut into the content.
   const clip = {
-    bottom: 'polygon(0 0, 100% 0, 100% 92%, 95% 100%, 90% 93%, 85% 100%, 80% 94%, 75% 100%, 70% 93%, 65% 100%, 60% 94%, 55% 100%, 50% 92%, 45% 100%, 40% 93%, 35% 100%, 30% 94%, 25% 100%, 20% 93%, 15% 100%, 10% 94%, 5% 100%, 0 92%)',
-    top: 'polygon(0 8%, 5% 0, 10% 7%, 15% 0, 20% 6%, 25% 0, 30% 7%, 35% 0, 40% 6%, 45% 0, 50% 8%, 55% 0, 60% 7%, 65% 0, 70% 6%, 75% 0, 80% 7%, 85% 0, 90% 6%, 95% 0, 100% 8%, 100% 100%, 0 100%)',
+    bottom:
+      'polygon(0 0, 100% 0, 100% calc(100% - 22px), 95% 100%, 90% calc(100% - 19px), 85% 100%, 80% calc(100% - 16px), 75% 100%, 70% calc(100% - 19px), 65% 100%, 60% calc(100% - 16px), 55% 100%, 50% calc(100% - 22px), 45% 100%, 40% calc(100% - 19px), 35% 100%, 30% calc(100% - 16px), 25% 100%, 20% calc(100% - 19px), 15% 100%, 10% calc(100% - 16px), 5% 100%, 0 calc(100% - 22px))',
+    top: 'polygon(0 22px, 5% 0, 10% 19px, 15% 0, 20% 16px, 25% 0, 30% 19px, 35% 0, 40% 16px, 45% 0, 50% 22px, 55% 0, 60% 19px, 65% 0, 70% 16px, 75% 0, 80% 19px, 85% 0, 90% 16px, 95% 0, 100% 22px, 100% 100%, 0 100%)',
     none: undefined,
   }[torn]
-  const tornPadding = {
-    bottom: 'pb-12',
-    top: 'pt-12',
-    none: '',
-  }[torn]
+  const { ref, revealCls } = useReveal()
+  // Reserved as a spacer, not a pb-*/pt-* class: every caller passes its own p-*,
+  // which tailwind-merge resolves last and would silently drop the clearance.
+  const tearClearance =
+    torn === 'none' ? null : <div className="h-8 shrink-0" aria-hidden="true" />
+  // The clip-path lives on a background layer, not the wrapper: clipping the
+  // wrapper also beheaded the push pins and washi tape pinned at -top-*, which
+  // must overflow onto the cork. Surface-painting classes from the caller (bg,
+  // border, shadow, rounded) move to that layer; layout classes stay outside.
+  const surface: string[] = []
+  const layout: string[] = []
+  for (const token of (className ?? '').split(/\s+/)) {
+    if (!token) continue
+    if (/^(?:[a-z-]+:)*(?:bg-|border|shadow|rounded)/.test(token)) surface.push(token)
+    else layout.push(token)
+  }
   return (
     <div
+      ref={ref}
       className={cn(
-        'relative rounded-lg bg-paper shadow-[0_6px_0_rgba(42,31,22,0.08)] transition-transform hover:-translate-y-1',
-        tornPadding,
+        'relative isolate rounded-lg transition-transform hover:-translate-y-1',
+        revealCls,
+        layout
+      )}
+    >
+      <div
+        className={cn(
+          'absolute inset-0 -z-10 rounded-lg bg-paper shadow-[0_6px_0_rgba(42,31,22,0.08)]',
+          surface
+        )}
+        style={clip ? { clipPath: clip } : undefined}
+        aria-hidden="true"
+      />
+      {torn === 'top' && tearClearance}
+      {children}
+      {torn === 'bottom' && tearClearance}
+    </div>
+  )
+}
+
+// A ruled index card — the kind that actually gets pinned to corkboards.
+// Straight-cut edges (unlike the torn cards), near-white stock, a red header
+// rule and faint kraft ruled lines, all drawn from the site palette. Pair the
+// ruled spacing with leading-[26px] content so the text sits on the lines.
+export function IndexCard({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) {
+  const { ref, revealCls } = useReveal()
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'relative isolate rounded-md border border-ink/10 bg-[#FFFDF7] shadow-[0_6px_0_rgba(42,31,22,0.08)] transition-transform hover:-translate-y-1',
+        revealCls,
         className
       )}
-      style={clip ? { clipPath: clip } : undefined}
+      style={{
+        backgroundImage:
+          'linear-gradient(hsl(9 63% 44% / 0.4) 0 0), repeating-linear-gradient(to bottom, transparent 0 24.5px, hsl(36 38% 63% / 0.4) 24.5px 26px)',
+        backgroundSize: '100% 2px, 100% calc(100% - 58px)',
+        backgroundPosition: '0 44px, 0 52px',
+        backgroundRepeat: 'no-repeat',
+      }}
     >
       {children}
     </div>
@@ -145,10 +294,13 @@ export function Polaroid({
     lg: 'max-w-[256px]',
     xl: 'max-w-[320px]',
   }[size]
+  const { ref, revealCls } = useReveal<HTMLElement>()
   return (
     <figure
+      ref={ref}
       className={cn(
         'inline-flex flex-col items-center rounded bg-paper p-2.5 pb-4 shadow-[0_8px_0_rgba(42,31,22,0.1)]',
+        revealCls,
         className
       )}
       style={{ transform: `rotate(${rotation}deg)` }}

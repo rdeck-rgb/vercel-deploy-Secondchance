@@ -1,5 +1,11 @@
 import { Link } from 'react-router'
-import { ArrowRight, Check, ChevronRight, Minus, Plus } from 'lucide-react'
+import { ArrowRight, Check, Minus, Plus } from 'lucide-react'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { useState } from 'react'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
@@ -157,7 +163,6 @@ function ServiceCard({ s, expanded, onToggle }: { s: typeof SERVICES[0]; expande
 }
 
 export default function Pricing() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [openService, setOpenService] = useState<number | null>(0)
 
   return (
@@ -168,11 +173,6 @@ export default function Pricing() {
         {/* Hero */}
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <nav className="flex items-center justify-center gap-1.5 text-xs text-ink/50 mb-8">
-              <Link to="/" className="hover:text-stamp-red">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-ink/70">Pricing</span>
-            </nav>
             <Stamp variant="outline" className="mb-4">Transparent Pricing</Stamp>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink font-serif">
               No surprises. Just results.
@@ -194,7 +194,15 @@ export default function Pricing() {
             </div>
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {BUNDLES.map((b) => (
-                <TornCard key={b.name} className={`relative flex flex-col p-7 pt-10 ${b.popular ? 'lg:-translate-y-3' : ''}`} torn="bottom">
+                <TornCard
+                  key={b.name}
+                  className={`relative flex flex-col p-7 pt-10 border ${
+                    b.popular
+                      ? 'bg-kraft/50 border-stamp-red/25 lg:-translate-y-3'
+                      : 'bg-white border-ink/10'
+                  }`}
+                  torn="bottom"
+                >
                   {b.popular && (
                     <div className="absolute top-3 left-1/2 -translate-x-1/2 -rotate-1">
                       <div className="rounded-sm bg-stamp-red px-4 py-1.5 text-xs font-bold text-white font-mono uppercase tracking-wider shadow-[0_2px_0_rgba(42,31,22,0.15)]">
@@ -250,49 +258,50 @@ export default function Pricing() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-20">
+        {/* FAQ — same treatment as the home page FAQ */}
+        <section className="bg-kraft/40 py-20 sm:py-28">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <Stamp variant="outline">Pricing FAQ</Stamp>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink font-serif">Still deciding?</h2>
+            <div className="text-center">
+              <Stamp variant="outline" className="mb-4">Pricing FAQ</Stamp>
+              <h2 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-ink font-serif">
+                Still deciding?
+              </h2>
             </div>
-            <div className="space-y-4">
-              {FAQS.map((f, i) => (
-                <TornCard key={i} className="relative" torn="none">
-                  <div className="absolute -top-3 left-6">
-                    <PushPin className="h-5 w-5" />
-                  </div>
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="flex w-full items-center justify-between p-6 text-left font-bold text-ink hover:text-stamp-red transition-colors"
-                  >
-                    <span className="pr-8 font-serif text-lg">{f.q}</span>
-                    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-stamp-red/10 text-stamp-red transition-transform duration-300 text-lg leading-none ${openFaq === i ? 'rotate-45' : ''}`}>+</span>
-                  </button>
-                  {openFaq === i && (
-                    <div className="border-t-2 border-dashed border-ink/10 px-6 pb-6 pt-4 text-sm text-ink/70 leading-relaxed">{f.a}</div>
-                  )}
-                </TornCard>
-              ))}
+            <div className="mt-12 bg-paper rounded-lg border-2 border-ink/10 p-2 shadow-[0_6px_0_rgba(42,31,22,0.08)]">
+              <Accordion type="single" collapsible className="w-full">
+                {FAQS.map((f, i) => (
+                  <AccordionItem key={i} value={`item-${i}`} className="border-ink/10">
+                    <AccordionTrigger className="text-left text-base sm:text-lg font-bold text-ink hover:text-stamp-red px-4 py-5">
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-ink/70 leading-relaxed px-4 pb-5">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </section>
 
-        {/* Bottom CTA */}
-        <section className="pb-20">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        {/* Bottom CTA — same treatment as the About page sign-off. Kraft tone
+            matches the FAQ band above so the two read as one region split by
+            the rule, rather than two near-identical bands. */}
+        <section className="bg-kraft/40 py-20 border-t-2 border-ink/10">
+          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
             <TornCard className="p-8 sm:p-10 relative inline-block w-full">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <PushPin className="h-6 w-6" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink font-serif">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink font-serif leading-tight">
                 Not sure which package fits? Start with the free eligibility check.
               </h2>
-              <p className="mt-3 text-ink/65">Takes about five minutes. No obligation.</p>
+              <p className="mt-6 text-lg text-ink/70 leading-relaxed">
+                Takes about five minutes. No obligation.
+              </p>
               <Link
                 to="/get-started"
-                className="mt-6 inline-flex items-center gap-2 rounded-md bg-stamp-red px-6 py-3.5 text-base font-bold text-white shadow-[0_4px_0_rgba(42,31,22,0.15)] hover:bg-stamp-red-dark transition-colors"
+                className="mt-8 inline-flex items-center gap-2 rounded-md bg-stamp-red px-8 py-4 text-lg font-bold text-white shadow-[0_4px_0_rgba(42,31,22,0.15)] hover:bg-stamp-red-dark transition-colors"
               >
                 Start Today
                 <ArrowRight className="h-5 w-5" />

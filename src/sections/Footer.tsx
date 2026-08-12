@@ -1,6 +1,60 @@
 import { Link } from 'react-router'
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from 'lucide-react'
-import { PushPin, Stamp } from '@/components/BoardElements'
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
+import { Stamp } from '@/components/BoardElements'
+import { Logo } from '@/components/Logo'
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06Z" />
+    </svg>
+  )
+}
+
+/** Melanie's own profile is kept separate from the company accounts — they are
+ *  different people to follow, and lumping them together implies otherwise. */
+const SOCIAL_GROUPS = [
+  {
+    title: 'Melanie',
+    links: [
+      {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/melanie-deck-84334741b/',
+        icon: Linkedin,
+        label: 'Connect with Melanie Deck on LinkedIn',
+      },
+    ],
+  },
+  {
+    title: 'click2.ai',
+    links: [
+      {
+        name: 'Facebook',
+        href: 'https://www.facebook.com/Click2ai/',
+        icon: Facebook,
+        label: 'Follow click2.ai on Facebook',
+      },
+      {
+        name: 'Instagram',
+        href: 'https://www.instagram.com/click2.ai/',
+        icon: Instagram,
+        label: 'Follow click2.ai on Instagram',
+      },
+      {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/company/click2ai',
+        icon: Linkedin,
+        label: 'Follow click2.ai on LinkedIn',
+      },
+      {
+        name: 'TikTok',
+        href: 'https://www.tiktok.com/@click2ai',
+        icon: TikTokIcon,
+        label: 'Follow click2.ai on TikTok',
+      },
+    ],
+  },
+]
 
 const COLS = [
   {
@@ -46,13 +100,8 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-stamp-red text-white shadow-[0_3px_0_rgba(42,31,22,0.2)]">
-                <PushPin className="h-5 w-5" />
-              </span>
-              <span className="text-lg font-bold tracking-tight text-ink font-serif">
-                SecondChance <span className="text-stamp-red">Media</span>
-              </span>
+            <Link to="/" className="flex items-center" aria-label="SecondChance Media — home">
+              <Logo className="h-10" />
             </Link>
             <p className="mt-4 text-sm text-ink/70 leading-relaxed max-w-sm">
               Digital marketing for animal welfare nonprofits — so more animals
@@ -77,45 +126,31 @@ export function Footer() {
                 <span>7420 Wisteria Ave<br />Parkland, Florida 33076</span>
               </div>
             </address>
-            <div className="mt-6 flex gap-3">
-              <a
-                href="https://facebook.com/secondchancemedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-ink/5 border border-ink/10 text-ink/70 hover:bg-forest hover:border-forest hover:text-white transition-all"
-                aria-label="Follow SecondChance Media on Facebook"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://instagram.com/secondchancemedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-ink/5 border border-ink/10 text-ink/70 hover:bg-forest hover:border-forest hover:text-white transition-all"
-                aria-label="Follow SecondChance Media on Instagram"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a
-                href="https://tiktok.com/@secondchancemedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-ink/5 border border-ink/10 text-ink/70 hover:bg-forest hover:border-forest hover:text-white transition-all"
-                aria-label="Follow SecondChance Media on TikTok"
-              >
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06Z" />
-                </svg>
-              </a>
-              <a
-                href="https://youtube.com/@secondchancemedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-md bg-ink/5 border border-ink/10 text-ink/70 hover:bg-forest hover:border-forest hover:text-white transition-all"
-                aria-label="Follow SecondChance Media on YouTube"
-              >
-                <Youtube className="h-4 w-4" />
-              </a>
+            <div className="mt-6 flex flex-wrap items-start gap-x-5 gap-y-4">
+              {SOCIAL_GROUPS.map((group, i) => (
+                <div
+                  key={group.title}
+                  className={i > 0 ? 'border-l-2 border-dashed border-ink/10 pl-5' : ''}
+                >
+                  <h4 className="text-[10px] font-mono font-semibold uppercase tracking-widest text-ink/40">
+                    {group.title}
+                  </h4>
+                  <div className="mt-2 flex gap-3">
+                    {group.links.map((s) => (
+                      <a
+                        key={s.name}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-10 w-10 items-center justify-center rounded-md bg-ink/5 border border-ink/10 text-ink/70 hover:bg-forest hover:border-forest hover:text-white transition-all"
+                        aria-label={s.label}
+                      >
+                        <s.icon className="h-4 w-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           {COLS.map((col) => (

@@ -1,5 +1,5 @@
 import { HomeHeartIcon, SearchPawIcon, GiftIcon, MegaphonePawIcon } from '@/components/AnimalIcons'
-import { TornCard, PushPin } from '@/components/BoardElements'
+import { TornCard } from '@/components/BoardElements'
 
 const CARDS = [
   {
@@ -44,9 +44,6 @@ export function Problem() {
               className="p-8 relative bg-paper/95"
               torn="bottom"
             >
-              <div className="absolute -top-3 left-8">
-                <PushPin className="h-5 w-5" />
-              </div>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-forest/10 text-forest">
                 <c.icon className="h-7 w-7" />
               </div>

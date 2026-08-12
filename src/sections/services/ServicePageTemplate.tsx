@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { ArrowRight, Check, Quote, ChevronRight } from 'lucide-react'
+import { ArrowRight, Check, Quote } from 'lucide-react'
 import { useState } from 'react'
 import {
   CorkBoard,
@@ -19,6 +19,12 @@ export type ServiceConfig = {
   priceNote: string
   heroImage?: string
   heroImageAlt?: string
+  /** object-position for the hero photo. These are tall portraits dropped into
+   *  a 4:3 frame, so a centred crop cuts the dog's head off — anchor high. */
+  heroImagePosition?: string
+  /** Short handwritten caption under the hero polaroid. Omit for no caption —
+   *  never reuse heroImageAlt here, that's a description, not a caption. */
+  heroCaption?: string
   trustPoints: string[]
   stats: { value: string; label: string }[]
   problemEyebrow: string
@@ -53,26 +59,18 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
 
   return (
     <main>
-      {/* Breadcrumb + Hero on corkboard */}
+      {/* Hero on corkboard */}
       <CorkBoard className="py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-1.5 text-xs text-ink/60 mb-8 font-mono uppercase tracking-wider">
-            <Link to="/" className="hover:text-forest">Home</Link>
-            <ChevronRight className="h-3 w-3" />
-            <Link to="/services" className="hover:text-forest">Services</Link>
-            <ChevronRight className="h-3 w-3" />
-            <span className="text-ink">{c.breadcrumb}</span>
-          </nav>
-
-          <div className={`grid gap-10 items-start ${c.heroImage ? 'lg:grid-cols-2' : 'max-w-5xl'}`}>
-            <TornCard className="p-6 sm:p-10">
-              <div className="flex justify-center">
+          <div className={`grid gap-10 items-center ${c.heroImage ? 'lg:grid-cols-2' : 'max-w-5xl'}`}>
+            {/* Pinned and taped exactly like the home page hero card: both
+                overhang the top edge onto the cork rather than sitting inside. */}
+            <TornCard className="relative p-6 sm:p-10">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <PushPin className="h-7 w-7" />
               </div>
-              <div className="mt-3 flex items-center gap-3">
-                <WashiTape color="green" className="w-20" />
-                <Stamp variant="green">{c.eyebrow}</Stamp>
-              </div>
+              <WashiTape color="green" className="absolute -top-2 left-8 w-24 rotate-[-3deg]" />
+              <Stamp variant="green">{c.eyebrow}</Stamp>
               <h1 className="mt-5 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-tight">
                 {c.h1a} <span className="text-forest">{c.h1b}</span>
               </h1>
@@ -99,12 +97,21 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
 
             {c.heroImage && (
               <div className="flex justify-center lg:justify-end">
-                <Polaroid
-                  src={c.heroImage}
-                  alt={c.heroImageAlt ?? c.breadcrumb}
-                  caption={c.heroImageAlt ?? c.breadcrumb}
-                  rotation={2}
-                />
+                {/* Pinned to the same board as the card, so it reads as part of
+                    the hero rather than a loose image floating beside it. */}
+                <div className="relative">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <PushPin className="h-7 w-7" />
+                  </div>
+                  <Polaroid
+                    src={c.heroImage}
+                    alt={c.heroImageAlt ?? c.breadcrumb}
+                    caption={c.heroCaption}
+                    rotation={2}
+                    size="xl"
+                    objectPosition={c.heroImagePosition ?? 'center'}
+                  />
+                </div>
               </div>
             )}
           </div>
@@ -128,10 +135,7 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
       {/* Problem */}
       <section className="bg-paper py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <WashiTape color="red" />
-            <Stamp variant="red">{c.problemEyebrow}</Stamp>
-          </div>
+          <Stamp variant="red" className="mb-4">{c.problemEyebrow}</Stamp>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-ink leading-tight">{c.problemTitle}</h2>
           {c.problemBody.map((p, i) => (
             <p key={i} className="mt-5 text-lg text-ink/70 leading-relaxed">{p}</p>
@@ -145,18 +149,20 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
       {/* Features */}
       <CorkBoard className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-4">
-              <WashiTape color="green" />
-              <Stamp variant="green">{c.featuresEyebrow}</Stamp>
+          {/* On paper, not bare on the cork — cream text on tan cork sits near
+              2:1 contrast, well under the 4.5:1 minimum. */}
+          <TornCard className="relative max-w-2xl p-6 sm:p-8">
+            <div className="absolute -top-3 left-8">
+              <PushPin className="h-6 w-6" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-paper">{c.featuresTitle}</h2>
-            <p className="mt-4 text-lg text-paper/80">{c.featuresNote}</p>
-          </div>
+            <Stamp variant="green" className="mb-4">{c.featuresEyebrow}</Stamp>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-ink">{c.featuresTitle}</h2>
+            <p className="mt-4 text-lg text-ink/75">{c.featuresNote}</p>
+          </TornCard>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {c.features.map((f) => (
-              <TornCard key={f.title} className="p-6 hover:-translate-y-1 transition-transform">
-                <div className="flex justify-center -mt-3 mb-2">
+              <TornCard key={f.title} className="relative p-6 hover:-translate-y-1 transition-transform">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <PushPin className="h-5 w-5" />
                 </div>
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-forest/10">
@@ -190,18 +196,24 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-ink">{c.pricingTitle}</h2>
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <WashiTape color="red" />
-              <Stamp variant="red">{c.pricingEyebrow}</Stamp>
-            </div>
           </div>
-          <div className={`mt-12 grid gap-6 ${c.plans.length > 2 ? 'lg:grid-cols-3' : 'lg:grid-cols-2 max-w-4xl mx-auto'}`}>
+          {/* A single plan gets one centred column — in a 2-col grid it would
+              sit in the left half with dead space beside it. */}
+          <div
+            className={`mt-12 grid gap-6 ${
+              c.plans.length > 2
+                ? 'lg:grid-cols-3'
+                : c.plans.length === 2
+                  ? 'lg:grid-cols-2 max-w-4xl mx-auto'
+                  : 'max-w-md mx-auto'
+            }`}
+          >
             {c.plans.map((p) => (
               <TornCard
                 key={p.name}
-                className="relative flex flex-col p-8"
+                className="relative flex flex-col p-8 pt-9"
               >
-                <div className="flex justify-center mb-3">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <PushPin className="h-5 w-5" />
                 </div>
                 {p.popular && (

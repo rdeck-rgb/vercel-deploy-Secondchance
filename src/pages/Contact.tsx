@@ -1,29 +1,42 @@
-import { Link } from 'react-router'
-import { useState } from 'react'
-import { ArrowRight, Phone, Mail, MapPin, Check, ChevronRight } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { ArrowRight, Phone, Mail, MapPin, Check } from 'lucide-react'
 import { PageMeta } from '@/components/PageMeta'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { Footer } from '@/sections/Footer'
 import { GoogleCalendarButton } from '@/components/GoogleCalendarButton'
 import { TornCard, PushPin, Stamp, Polaroid } from '@/components/BoardElements'
+import { submitLead, honeypotWrapCls } from '@/lib/leads'
 
 const inputCls =
   'w-full px-4 py-3 rounded-lg bg-paper border-2 border-ink/10 text-ink placeholder:text-ink/40 text-sm focus:outline-none focus:border-forest focus:ring-2 focus:ring-forest/20 transition-all'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
   const [name, setName] = useState('')
   const [org, setOrg] = useState('')
   const [email, setEmail] = useState('')
   const [topic, setTopic] = useState('General question')
   const [msg, setMsg] = useState('')
+  const [hp, setHp] = useState('')
+  const startedAt = useRef(Date.now())
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`[${topic}] Message from ${name} — ${org}`)
-    const body = encodeURIComponent(`Name: ${name}\nOrganization: ${org}\nEmail: ${email}\nTopic: ${topic}\n\n${msg}`)
-    window.location.href = `mailto:mdeck@adgrantconsultant.com?subject=${subject}&body=${body}`
+    setSending(true)
+    setSendError(false)
+    const result = await submitLead(
+      'contact',
+      { name, org, email, topic, message: msg },
+      { hp, startedAt: startedAt.current }
+    )
+    setSending(false)
+    if (result === 'error') {
+      setSendError(true)
+      return
+    }
     setSent(true)
   }
 
@@ -34,11 +47,6 @@ export default function Contact() {
       <main>
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-1.5 text-xs text-ink/50 mb-8">
-              <Link to="/" className="hover:text-stamp-red">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-ink/70">Contact</span>
-            </nav>
             <div className="grid gap-12 lg:grid-cols-2">
               <div>
                 <Stamp variant="outline" className="mb-4">Get in touch</Stamp>
@@ -76,16 +84,20 @@ export default function Contact() {
                   <GoogleCalendarButton />
                 </div>
                 <div className="mt-8">
+                  {/* portrait: melanie.jpg is natively 3:4, so this frame shows
+                      the whole photo — a 4:3 crop cut her face or the dogs. */}
                   <Polaroid
                     src="/images/photos/melanie.jpg"
-                    alt="Melanie Deck with her dogs"
+                    alt="Melanie Deck on the couch with Archie and Georgie"
                     caption="Melanie Deck"
                     rotation={-2}
+                    size="lg"
+                    aspect="portrait"
                   />
                 </div>
               </div>
 
-              <TornCard className="p-7 sm:p-8 relative h-fit" torn="none">
+              <TornCard className="p-7 sm:p-8 relative h-fit bg-white border border-ink/10" torn="none">
                 <div className="absolute -top-3 left-8">
                   <PushPin className="h-5 w-5" />
                 </div>
@@ -103,7 +115,7 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <h2 className="text-xl font-bold text-ink font-serif">Send us a message</h2>
-                    <p className="text-sm text-ink/60">This will open your email client to send directly to <a href="mailto:mdeck@adgrantconsultant.com" className="font-bold text-stamp-red hover:underline">mdeck@adgrantconsultant.com</a></p>
+                    <p className="text-sm text-ink/60">A real person reads every message — we reply within one business day. Prefer email? <a href="mailto:mdeck@adgrantconsultant.com" className="font-bold text-stamp-red hover:underline">mdeck@adgrantconsultant.com</a></p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="cname" className="block text-sm font-bold text-ink mb-1.5">Name</label>
@@ -132,11 +144,36 @@ export default function Contact() {
                       <label htmlFor="cmsg" className="block text-sm font-bold text-ink mb-1.5">Message</label>
                       <textarea id="cmsg" rows={4} required className={`${inputCls} resize-none`} placeholder="Tell us a little about your rescue and what you need..." value={msg} onChange={(e) => setMsg(e.target.value)} />
                     </div>
+                    {/* Honeypot — off-screen so bots fill it, skipped by people and AT. */}
+                    <div className={honeypotWrapCls} aria-hidden="true">
+                      <label htmlFor="c-company-website">Company website</label>
+                      <input
+                        id="c-company-website"
+                        name="c-company-website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={hp}
+                        onChange={(e) => setHp(e.target.value)}
+                      />
+                    </div>
+
+                    {sendError && (
+                      <p className="text-sm font-medium text-stamp-red" role="alert">
+                        Something went wrong sending that. Please try again, or email{' '}
+                        <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
+                          mdeck@adgrantconsultant.com
+                        </a>
+                        .
+                      </p>
+                    )}
+
                     <button
                       type="submit"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-stamp-red px-6 py-4 text-base font-bold text-white shadow-[0_4px_0_rgba(42,31,22,0.15)] hover:bg-stamp-red-dark transition-colors"
+                      disabled={sending}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-stamp-red px-6 py-4 text-base font-bold text-white shadow-[0_4px_0_rgba(42,31,22,0.15)] hover:bg-stamp-red-dark transition-colors disabled:opacity-70"
                     >
-                      Send Message
+                      {sending ? 'Sending…' : 'Send Message'}
                       <ArrowRight className="h-5 w-5" />
                     </button>
                   </form>

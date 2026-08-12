@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router'
-import { PawPrint, ArrowRight, ArrowLeft, Check, ChevronRight, Mail, Calendar } from 'lucide-react'
+import { PawPrint, ArrowRight, ArrowLeft, Check, Mail, Calendar } from 'lucide-react'
 import { PushPin } from '@/components/BoardElements'
+import { submitLead, honeypotWrapCls } from '@/lib/leads'
 import { SiteHeader } from '@/components/SiteHeader'
 import { Footer } from '@/sections/Footer'
 import { PageMeta } from '@/components/PageMeta'
@@ -231,6 +232,10 @@ export default function GetStarted() {
   const [step, setStep] = useState(1)
   const [data, setData] = useState<FormData>(INITIAL_DATA)
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
+  const [hp, setHp] = useState('')
+  const startedAt = useRef(Date.now())
 
   const update = <K extends keyof FormData>(key: K, value: FormData[K]) => {
     setData((prev) => ({ ...prev, [key]: value }))
@@ -253,13 +258,25 @@ export default function GetStarted() {
     return true
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`[Google Ad Grants Onboarding] ${data.legalName}`)
-    const body = encodeURIComponent(
-      `=== ORGANIZATION ===\nLegal Name: ${data.legalName}\nEIN: ${data.ein}\nWebsite: ${data.website}\nContact: ${data.contactName}\nPhone: ${data.phone}\nEmail: ${data.email}\nGoodstack: ${data.goodstack}\n\n=== DOCUMENTATION ===\nDetermination Letter: ${data.determinationLetter}\nGoodstack Status: ${data.goodstackStatus}\nGoogle for Nonprofits: ${data.googleNonprofits}\n\n=== WEBSITE + ACCESS ===\nAdmin Access: ${data.websiteAccess}\nPlatforms: ${data.platforms.join(', ')}\nGA4: ${data.ga4}\nSearch Console: ${data.searchConsole}\n\n=== WEBSITE HEALTH ===\nCurrent Pages: ${data.currentPages.join(', ')}\nWebsite Condition: ${data.websiteHealth}\n\n=== GOALS + TIMELINE ===\nGoals: ${data.goals.join(', ')}\nAudience: ${data.audience || data.audiencePreset}\nGeography: ${data.geography || data.geographyPreset}\nTimeline: ${data.timeline}\nNotes: ${data.notes}`
+    setSending(true)
+    setSendError(false)
+    const result = await submitLead(
+      'onboarding',
+      {
+        ...data,
+        // the free-text box wins over the preset chip when both are set
+        audience: data.audience || data.audiencePreset,
+        geography: data.geography || data.geographyPreset,
+      },
+      { hp, startedAt: startedAt.current }
     )
-    window.location.href = `mailto:mdeck@adgrantconsultant.com?subject=${subject}&body=${body}`
+    setSending(false)
+    if (result === 'error') {
+      setSendError(true)
+      return
+    }
     setSubmitted(true)
   }
 
@@ -320,11 +337,6 @@ export default function GetStarted() {
         {/* Hero */}
         <section className="bg-ink py-12 sm:py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <nav className="flex items-center gap-1.5 text-xs text-paper/50 mb-6">
-              <Link to="/" className="hover:text-paper">Home</Link>
-              <ChevronRight className="h-3 w-3" />
-              <span className="text-paper/80">Get Started</span>
-            </nav>
             <div className="flex items-center gap-3 mb-5">
               <span className="flex h-10 w-10 items-center justify-center rounded-md bg-forest text-white">
                 <PawPrint className="h-5 w-5" />
@@ -684,6 +696,30 @@ export default function GetStarted() {
                   </>
                 )}
 
+                {/* Honeypot — off-screen so bots fill it, skipped by people and AT. */}
+                <div className={honeypotWrapCls} aria-hidden="true">
+                  <label htmlFor="gs-company-website">Company website</label>
+                  <input
+                    id="gs-company-website"
+                    name="gs-company-website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={hp}
+                    onChange={(e) => setHp(e.target.value)}
+                  />
+                </div>
+
+                {sendError && (
+                  <p className="mt-6 text-sm font-medium text-stamp-red" role="alert">
+                    Something went wrong sending that. Please try again, or email{' '}
+                    <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
+                      mdeck@adgrantconsultant.com
+                    </a>
+                    .
+                  </p>
+                )}
+
                 <div className="mt-8 flex items-center justify-between gap-4">
                   {step > 1 ? (
                     <button
@@ -717,10 +753,10 @@ export default function GetStarted() {
                   ) : (
                     <button
                       type="submit"
-                      disabled={!canProceed()}
+                      disabled={!canProceed() || sending}
                       className="inline-flex items-center gap-2 rounded-md bg-forest px-6 py-3 text-sm font-bold text-white shadow-[0_3px_0_rgba(42,31,22,0.12)] hover:bg-forest-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                      Submit
+                      {sending ? 'Sending…' : 'Submit'}
                       <ArrowRight className="h-4 w-4" />
                     </button>
                   )}

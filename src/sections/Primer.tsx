@@ -19,18 +19,26 @@ export function Primer() {
           </div>
 
           <div className="lg:col-span-7 grid gap-5 sm:grid-cols-2">
-            <TornCard className="p-6 relative" torn="bottom">
+            {/* Four notes on four different paper stocks — sage, manila, notepad
+                white, blush — held together by the shared pin, tear and label. */}
+            <TornCard
+              className="p-6 relative rotate-[-0.4deg] bg-forest/10 border border-forest/20"
+              torn="bottom"
+            >
               <div className="absolute -top-3 left-6">
                 <PushPin className="h-5 w-5" />
               </div>
-              <p className="text-sm font-mono font-semibold uppercase tracking-wider text-ink/50">Who qualifies</p>
+              <p className="text-sm font-mono font-semibold uppercase tracking-wider text-forest">Who qualifies</p>
               <p className="mt-3 text-ink/80 leading-relaxed">
                 Registered 501(c)(3) animal-welfare organizations in the U.S. Government-run animal
                 control is excluded, but a friends-of nonprofit partner may qualify.
               </p>
             </TornCard>
 
-            <TornCard className="p-6 relative bg-kraft/60" torn="bottom">
+            <TornCard
+              className="p-6 relative rotate-[0.5deg] bg-kraft/60 border border-ink/10"
+              torn="bottom"
+            >
               <div className="absolute -top-3 left-6">
                 <PushPin className="h-5 w-5" />
               </div>
@@ -41,12 +49,15 @@ export function Primer() {
               </p>
             </TornCard>
 
-            <TornCard className="p-6 relative" torn="bottom">
+            <TornCard
+              className="p-6 relative sm:col-span-2 rotate-[0.4deg] bg-white/75 border border-ink/10"
+              torn="bottom"
+            >
               <div className="absolute -top-3 left-6">
                 <PushPin className="h-5 w-5" />
               </div>
               <p className="text-sm font-mono font-semibold uppercase tracking-wider text-ink/50">Jargon decoder</p>
-              <dl className="mt-3 space-y-2 text-sm text-ink/80 leading-relaxed">
+              <dl className="mt-3 grid gap-x-6 gap-y-3 sm:grid-cols-3 text-sm text-ink/80 leading-relaxed">
                 <div>
                   <dt className="font-bold text-ink">Compliance</dt>
                   <dd>Following Google's rules so you don't lose the grant.</dd>
@@ -62,14 +73,18 @@ export function Primer() {
               </dl>
             </TornCard>
 
-            <TornCard className="p-6 relative sm:col-span-2" torn="bottom">
+            <TornCard
+              className="p-6 relative sm:col-span-2 rotate-[-0.3deg] bg-stamp-red/[0.07] border border-stamp-red/20"
+              torn="bottom"
+            >
               <div className="absolute -top-3 left-6">
                 <PushPin className="h-5 w-5" />
               </div>
               <div className="flex items-start gap-4">
                 <HelpCircle className="h-6 w-6 text-stamp-red shrink-0 mt-1" />
                 <div>
-                  <p className="font-bold text-ink font-serif text-lg">Municipal or government-run shelter?</p>
+                  <p className="text-sm font-mono font-semibold uppercase tracking-wider text-stamp-red">Not eligible?</p>
+                  <p className="mt-2 font-bold text-ink font-serif text-lg">Municipal or government-run shelter?</p>
                   <p className="mt-2 text-ink/70 leading-relaxed">
                     You cannot receive the Google Ad Grant directly, but you are not out of options.
                     Scroll to the FAQ or book a free call and we will point you toward a friends-of

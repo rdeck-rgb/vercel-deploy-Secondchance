@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { Menu, X, Phone, ArrowRight, ChevronDown } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
-import { PushPin } from '@/components/BoardElements'
+import { Logo } from '@/components/Logo'
 import type { ComponentType } from 'react'
 import { HomeHeartIcon, SearchPawIcon, MegaphonePawIcon, GradCapPawIcon } from '@/components/AnimalIcons'
 
@@ -125,13 +125,8 @@ export function SiteHeader() {
       <header className="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b-2 border-ink/10 shadow-[0_2px_0_rgba(42,31,22,0.06)]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="group flex items-center gap-2.5">
-            <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-stamp-red text-white shadow-[0_3px_0_rgba(42,31,22,0.15)]">
-              <PushPin className="h-5 w-5" />
-            </span>
-            <span className="text-lg font-bold tracking-tight text-ink font-serif">
-              SecondChance <span className="text-stamp-red">Media</span>
-            </span>
+          <Link to="/" className="group flex items-center" aria-label="SecondChance Media — home">
+            <Logo className="h-9 sm:h-10" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">

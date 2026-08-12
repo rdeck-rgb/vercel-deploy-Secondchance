@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import { ArrowRight, Info } from 'lucide-react'
-import { CorkBoard, TornCard, PushPin, Polaroid, Stamp, TearOffTabs, WashiTape } from '@/components/BoardElements'
+import { CorkBoard, TornCard, PushPin, Polaroid, Stamp, TearOffTabs, WashiTape, IndexCard } from '@/components/BoardElements'
 
 export function Hero() {
   return (
@@ -79,21 +79,22 @@ export function Hero() {
                   alt="Golden retriever and Bernese mountain dog lying together"
                   caption="The reason behind all of it"
                   rotation={2}
+                  objectPosition="center 5%"
                 />
               </div>
 
-              <TornCard className="p-6 relative rotate-[1deg] sm:col-span-2 xl:col-span-1 bg-kraft/60">
-                <div className="absolute -top-3 right-6">
-                  <PushPin className="h-6 w-6" />
+              <IndexCard className="px-6 pb-6 pt-12 relative rotate-[1deg] sm:col-span-2 xl:col-span-1">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2">
+                  <WashiTape color="red" className="w-24 rotate-[2deg]" />
                 </div>
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-stamp-red font-serif">$120K</span>
                   <span className="text-sm font-bold text-ink/80">per year, per eligible nonprofit</span>
                 </div>
-                <p className="mt-2 text-sm text-ink/70 leading-relaxed">
+                <p className="mt-[25px] text-sm text-ink/70 leading-[26px]">
                   That is the Google Ad Grant ceiling. Most animal rescues qualify. Most never claim it.
                 </p>
-              </TornCard>
+              </IndexCard>
 
               <TornCard className="p-5 relative rotate-[-1deg] border-2 border-dashed border-forest/30 bg-paper">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">

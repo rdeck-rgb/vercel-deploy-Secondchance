@@ -16,6 +16,7 @@ export default function SocialMedia() {
           sub: `A feed that posts every week tells your community you're alive and worth visiting. A feed that stopped in March tells them to keep scrolling. We create and post everything — pet spotlights, foster appeals, happy-tails stories — and teach your team to keep it going, so the knowledge doesn't leave when we do.`,
           priceNote: 'From $495/month. Facebook + Instagram included.',
           heroImage: '/images/photos/golden-shoe.jpg',
+          heroImagePosition: 'center 25%',
           heroImageAlt: 'Golden retriever lounging on the couch proudly holding a stolen shoe',
           trustPoints: ['Done-for-you content', 'You approve one plan a month', 'Your team learns as we go'],
           stats: [
