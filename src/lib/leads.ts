@@ -18,7 +18,7 @@ export const LEADS_TOKEN = '899a77f377ecaacfbaf2bec53e7f88b0'
 /** A human takes at least this long to fill in a form; bots do not. */
 export const MIN_ELAPSED_MS = 3000
 
-export type LeadForm = 'eligibility' | 'contact' | 'onboarding'
+export type LeadForm = 'eligibility' | 'contact' | 'onboarding' | 'order'
 
 export type LeadGuard = {
   /** Value of the honeypot input — must be empty for a real person. */

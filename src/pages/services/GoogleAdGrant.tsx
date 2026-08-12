@@ -1,3 +1,4 @@
+import { PageMeta } from '@/components/PageMeta'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { Footer } from '@/sections/Footer'
@@ -6,6 +7,10 @@ import { ServicePageTemplate } from '@/sections/services/ServicePageTemplate'
 export default function GoogleAdGrant() {
   return (
     <div className="min-h-screen bg-paper antialiased">
+      <PageMeta
+        title="Google Ad Grant Management for Nonprofits — $397/mo | SecondChance Media"
+        description="$10,000/month in free Google Ads for qualifying 501(c)(3) animal organizations. We handle the application, compliance, and campaigns. $397/month management."
+      />
       <SiteHeader />
       <ServicePageTemplate
         c={{
@@ -14,7 +19,7 @@ export default function GoogleAdGrant() {
           h1a: 'Is it real? What’s the catch?',
           h1b: 'Do we qualify? Plain answers.',
           sub: `Google has offered registered nonprofits $10,000 a month in free advertising since 2003. It's real. Most 501(c)(3) animal organizations qualify — rescues, humane societies, wildlife sanctuaries, zoos, veterinary nonprofits, and specialty animal programs. The catch is a rulebook written for advertising people — and that's the part we handle, explained here in words a board member can read closely.`,
-          priceNote: '$395/month for management. The $10K in ads is free, always.',
+          priceNote: '$397/month for management. The $10K in ads is free, always.',
           heroImage: '/images/photos/bowties.jpg',
           heroImagePosition: 'center 10%',
           heroImageAlt: 'Two rescue dogs — a Bernese mountain dog and a golden retriever — sitting side by side in matching plaid bow ties',
@@ -36,7 +41,7 @@ export default function GoogleAdGrant() {
           imagine: `It's the first of the month. While you do morning rounds, your campaigns are already running — "adopt a senior dog," "foster kittens needed," "donate to animal rescue" — each one landing on a page built to turn that searcher into an applicant. Your monthly report arrives in plain English: what was spent (all of it free), what it produced, and what we're tuning next. You never opened a dashboard.`,
           featuresEyebrow: "What's included",
           featuresTitle: 'From application to full spend, done for you — and explained as we go.',
-          featuresNote: 'Everything below is included at $395/mo. You never pay Google a dime.',
+          featuresNote: 'Everything below is included at $397/mo. You never pay Google a dime.',
           features: [
             { title: 'Eligibility Check & Application', desc: 'We verify your 501(c)(3) status, set up your Google for Nonprofits account, and handle the entire grant application — the fussy paperwork that stalls most organizations on page two.' },
             { title: 'Campaign Build-Out', desc: 'Adoption campaigns, foster recruitment campaigns, and donation campaigns — each organized by topic, with more than one ad running in each group, so we can see which message actually reaches people.' },
@@ -59,8 +64,8 @@ export default function GoogleAdGrant() {
           plans: [
             {
               name: 'Grant Management',
-              price: '$395/month',
-              setup: '$900 one-time setup fee, waived with 12-month commitment',
+              price: '$397/month',
+              setup: '$2,000 one-time setup fee, waived with 12-month commitment',
               popular: true,
               timeline: 'Honest timeline: Google approval takes a few weeks — we keep you posted the whole way.',
               items: [
@@ -92,7 +97,7 @@ export default function GoogleAdGrant() {
             { q: 'Can the ads target just our local area?', a: 'Yes. Campaigns are aimed at your service area, so the free budget reaches people who can actually adopt, foster, volunteer, or donate.' },
             { q: 'What can we advertise?', a: 'Adoptable animals, foster recruitment, donation pages, volunteer sign-ups, and events. Google does not allow ads purely for selling merchandise, but everything mission-related is fair game.' },
             { q: 'How long until the ads are live?', a: 'Honestly: Google’s approval is not instant. Expect a few weeks from application to live campaigns. Anyone who promises same-week approval is overselling — we would rather give you the real timeline.' },
-            { q: 'How does billing work?', a: '$395/month for management with a $900 one-time setup fee, waived with a 12-month commitment. The $10,000 in monthly ad spend is completely free — you never pay Google anything.' },
+            { q: 'How does billing work?', a: '$397/month for management with a $2,000 one-time setup fee, waived with a 12-month commitment. The $10,000 in monthly ad spend is completely free — you never pay Google anything.' },
           ],
           ctaTitle: 'Your rescue may be leaving $120,000 a year unclaimed.',
           ctaSub: 'The free eligibility check answers the only question that matters first: do you qualify?',

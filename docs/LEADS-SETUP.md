@@ -1,6 +1,6 @@
 # Lead capture → Google Sheet
 
-All three site forms post to one Google Apps Script, which writes each lead into
+All four site forms post to one Google Apps Script, which writes each lead into
 the **SecondChance Media — Website Leads** sheet.
 
 The script **only writes rows — it sends no email.** Notifications are handled
@@ -13,6 +13,7 @@ separately, outside this script.
 | Free Eligibility Check | `/audit` | Eligibility Checks |
 | Contact | `/contact` | Contact |
 | Onboarding intake | `/get-started` | Onboarding |
+| Bundle order | `/order/:slug` | Bundle Orders |
 
 Tabs and header rows are created automatically on the first submission — you do
 not need to set them up by hand.
