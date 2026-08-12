@@ -5,10 +5,11 @@
  * "SecondChance Media — Website Leads" sheet, then deploy as a Web App.
  * Full walkthrough in docs/LEADS-SETUP.md.
  *
- * Three forms post here; each gets its own tab:
+ * Four forms post here; each gets its own tab:
  *   eligibility → "Eligibility Checks"   (/audit)
  *   contact     → "Contact"              (/contact)
  *   onboarding  → "Onboarding"           (/get-started)
+ *   order       → "Bundle Orders"        (/order/:slug)
  *
  * This script only writes rows — it sends no email. Notifications are handled
  * separately outside this script.
@@ -75,6 +76,19 @@ var FORMS = {
       ['Audience', 'audience'],
       ['Geography', 'geography'],
       ['Timeline', 'timeline'],
+      ['Notes', 'notes'],
+    ],
+  },
+  order: {
+    tab: 'Bundle Orders',
+    fields: [
+      ['Bundle', 'bundle'],
+      ['Price', 'bundlePrice'],
+      ['Organization', 'orgName'],
+      ['Contact Name', 'contactName'],
+      ['Email', 'email'],
+      ['Phone', 'phone'],
+      ['Website', 'website'],
       ['Notes', 'notes'],
     ],
   },

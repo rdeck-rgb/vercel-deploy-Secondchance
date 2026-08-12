@@ -7,7 +7,9 @@ import WebDesign from './pages/services/WebDesign'
 import LocalSEO from './pages/services/LocalSEO'
 import GoogleAdGrant from './pages/services/GoogleAdGrant'
 import SocialMedia from './pages/services/SocialMedia'
+import DonorEmail from './pages/services/DonorEmail'
 import Pricing from './pages/Pricing'
+import Order from './pages/Order'
 import GetStarted from './pages/GetStarted'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -25,7 +27,9 @@ export default function App() {
         <Route path="/services/local-seo" element={<LocalSEO />} />
         <Route path="/services/google-ad-grant" element={<GoogleAdGrant />} />
         <Route path="/services/social-media" element={<SocialMedia />} />
+        <Route path="/services/donor-email" element={<DonorEmail />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/order/:slug" element={<Order />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

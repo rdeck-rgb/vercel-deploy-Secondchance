@@ -1,3 +1,4 @@
+import { PageMeta } from '@/components/PageMeta'
 import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { Footer } from '@/sections/Footer'
@@ -6,6 +7,10 @@ import { ServicePageTemplate } from '@/sections/services/ServicePageTemplate'
 export default function LocalSEO() {
   return (
     <div className="min-h-screen bg-paper antialiased">
+      <PageMeta
+        title="AI Search & Local SEO for Animal Rescues — $297/mo | SecondChance Media"
+        description="Get found when families search &quot;adopt a dog near me.&quot; Google Business Profile optimization, 25+ directory listings, and AI search visibility. $297/month, live in 14 days."
+      />
       <SiteHeader />
       <ServicePageTemplate
         c={{
@@ -14,7 +19,7 @@ export default function LocalSEO() {
           h1a: 'A family nearby searched "adopt a dog" tonight.',
           h1b: 'Did they find you — or the breeder?',
           sub: `When someone in your community searches for a pet, Google shows a short list — and increasingly, AI assistants like ChatGPT answer with a single recommendation. Your rescue needs to be in both answers, or that adoption goes somewhere else. We make sure it's you, in plain English.`,
-          priceNote: '$295/month. Live in 14 days.',
+          priceNote: '$297/month. Live in 14 days.',
           heroImage: '/images/photos/golden-sit.jpg',
           heroImagePosition: 'center 12%',
           heroImageAlt: 'Golden retriever sitting patiently on a wooden dock in front of green hedges',
@@ -35,7 +40,7 @@ export default function LocalSEO() {
           imagine: `It's Sunday afternoon. A family asks their phone where they can adopt a dog this weekend. Google shows them a list. Their AI assistant names one rescue out loud. Both answers are you — because fourteen days after we start, the signals they read all point to your front door.`,
           featuresEyebrow: 'What we do for you',
           featuresTitle: 'Everything that makes your rescue the obvious answer nearby.',
-          featuresNote: 'Every feature below ships at $295/mo. No AI surcharge. No tiers.',
+          featuresNote: 'Every feature below ships at $297/mo. No AI surcharge. No tiers.',
           features: [
             { title: 'Google Business Profile Care', desc: 'Your public listing — the first thing searchers see — kept complete, current, and full of fresh animal photos and posts.' },
             { title: 'Consistent Listings Everywhere', desc: 'Your name, address, and phone number accurate and matching across 25+ directories, so Google and AI assistants trust what they read about you.' },
@@ -58,8 +63,8 @@ export default function LocalSEO() {
           plans: [
             {
               name: 'Local Search & Visibility',
-              price: '$295/month',
-              setup: '$900 one-time setup fee, waived with 12-month commitment',
+              price: '$297/month',
+              setup: '$1,500 one-time setup fee, waived with 12-month commitment',
               popular: true,
               timeline: 'Live in 14 days. Honest expectation: real movement in about 90 days.',
               items: [
@@ -86,13 +91,13 @@ export default function LocalSEO() {
             { q: 'Is "AI search" a separate service from regular search work?', a: 'No. AI assistants read the same signals as Google: accurate listings, good reviews, a well-built website. Anyone selling it as a separate premium product is charging twice for the same work.' },
             { q: 'Will this work for a small foster-based rescue?', a: 'Often better than for big organizations. You are competing in a smaller area with fewer competitors — a foster network in a mid-size town can become the obvious local answer surprisingly fast.' },
             { q: 'How long until we see results?', a: 'Honestly: optimizations go live in 14 days, Google typically reflects changes in 4-6 weeks, and most organizations see real movement around 90 days. We report monthly so you can watch it happen.' },
-            { q: 'Do we need a website from you for this to work?', a: 'No. We improve your visibility regardless of who built your site. That said, if your site also needs work, our $390/mo Foundation package is the most cost-effective path.' },
-            { q: 'What if we want to cancel?', a: 'The 12-month commitment waives your $900 setup fee. After 12 months you are month-to-month — cancel anytime with 30 days notice, no penalties.' },
+            { q: 'Do we need a website from you for this to work?', a: 'No. We improve your visibility regardless of who built your site. That said, if your site also needs work, our $397/mo Website + Local SEO bundle is the most cost-effective path.' },
+            { q: 'What if we want to cancel?', a: 'The 12-month commitment waives your $1,500 setup fee. After 12 months you are month-to-month — cancel anytime with 30 days notice, no penalties.' },
             { q: 'Do you guarantee first-page rankings?', a: 'No honest provider does — Google and AI assistants control their own answers. What we guarantee is the work: accurate listings, an active profile, real reviews, and a website search engines can read. Those are the inputs that drive the outcomes.' },
             { q: 'Can this help recruit fosters too, not just adopters?', a: 'Yes. We aim at foster-intent searches too — "foster kittens near me," "become a dog foster" — and make sure your foster page is what those searchers find.' },
           ],
           ctaTitle: 'While you were reading this, someone nearby searched for a pet.',
-          ctaSub: 'Google showed a list. An AI assistant named one rescue. $295/mo, live in 14 days — let\'s make both answers you.',
+          ctaSub: 'Google showed a list. An AI assistant named one rescue. $297/mo, live in 14 days — let\'s make both answers you.',
         }}
       />
       <Footer />

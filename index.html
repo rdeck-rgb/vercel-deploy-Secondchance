@@ -3,7 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SecondChance Media</title>
+
+    <!--
+      Static fallback metadata — what a shared link previews.
+
+      Google renders JS and will see the per-route tags that PageMeta injects.
+      Most social scrapers (Facebook, LinkedIn, Slack, iMessage) do NOT run JS
+      and only ever read this file, so these must stand on their own.
+
+      data-seo-static="true" MUST be on every tag PageMeta also emits. Helmet
+      appends its per-route tags rather than replacing these, which would leave
+      two conflicting <link rel="canonical"> tags on every page — worse for SEO
+      than having none. PageMeta deletes everything carrying this attribute once
+      it mounts, so: no JS = these generic tags stand; JS = the per-route tags
+      stand alone. Add the attribute to any tag added here that PageMeta sets.
+
+      (Helmet's own data-rh ownership does not work in this app — the
+      kimi-plugin-inspect-react transform runs in production too and rewrites
+      the JSX attributes Helmet relies on.)
+    -->
+    <title data-seo-static="true">SecondChance Media — Digital Marketing for Animal Welfare Nonprofits</title>
+    <meta
+      data-seo-static="true"
+      name="description"
+      content="We help animal rescues, shelters, and sanctuaries get found online — Google Ad Grant management, local SEO, websites, and social media built for animal welfare nonprofits."
+    />
+    <link data-seo-static="true" rel="canonical" href="https://2ndchancemedia.com/" />
+
+    <meta data-seo-static="true" property="og:type" content="website" />
+    <meta data-seo-static="true" property="og:site_name" content="SecondChance Media" />
+    <meta data-seo-static="true" property="og:title" content="SecondChance Media — Digital Marketing for Animal Welfare Nonprofits" />
+    <meta
+      data-seo-static="true"
+      property="og:description"
+      content="We help animal rescues, shelters, and sanctuaries get found online — Google Ad Grant management, local SEO, websites, and social media built for animal welfare nonprofits."
+    />
+    <meta data-seo-static="true" property="og:url" content="https://2ndchancemedia.com/" />
+    <meta data-seo-static="true" property="og:image" content="https://2ndchancemedia.com/images/hero.png" />
+    <!-- Not emitted by PageMeta, so deliberately unmarked and kept: these
+         describe the default social image, which no page currently overrides. -->
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
+
+    <meta data-seo-static="true" name="twitter:card" content="summary_large_image" />
+    <meta data-seo-static="true" name="twitter:title" content="SecondChance Media — Digital Marketing for Animal Welfare Nonprofits" />
+    <meta
+      data-seo-static="true"
+      name="twitter:description"
+      content="We help animal rescues, shelters, and sanctuaries get found online — Google Ad Grant management, local SEO, websites, and social media built for animal welfare nonprofits."
+    />
+    <meta data-seo-static="true" name="twitter:image" content="https://2ndchancemedia.com/images/hero.png" />
+
     <link rel="icon" type="image/svg+xml" href="/logo/icon-red.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png" />
@@ -12,6 +62,54 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+    <!--
+      Organization structured data. Static so crawlers that don't run JS still
+      read it. Every value here is verifiable from the site footer — do not add
+      claims (review counts, ratings, awards) that aren't independently true.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "SecondChance Media",
+        "description": "Digital marketing for animal welfare nonprofits — Google Ad Grant management, local SEO, web design, social media, and donor email.",
+        "url": "https://2ndchancemedia.com",
+        "logo": "https://2ndchancemedia.com/logo/favicon-512.png",
+        "image": "https://2ndchancemedia.com/images/hero.png",
+        "telephone": "+1-305-709-1382",
+        "email": "mdeck@adgrantconsultant.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "7420 Wisteria Ave",
+          "addressLocality": "Parkland",
+          "addressRegion": "FL",
+          "postalCode": "33076",
+          "addressCountry": "US"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Melanie Deck"
+        },
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "click2.ai",
+          "url": "https://click2.ai"
+        },
+        "areaServed": "US",
+        "knowsAbout": [
+          "Google Ad Grants for nonprofits",
+          "Local SEO for animal shelters",
+          "Animal rescue web design",
+          "Nonprofit social media management",
+          "Donor email marketing"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/melanie-deck-84334741b/",
+          "https://click2.ai"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
