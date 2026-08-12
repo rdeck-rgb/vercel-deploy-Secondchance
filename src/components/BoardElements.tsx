@@ -33,7 +33,7 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
     return () => io.disconnect()
   }, [])
 
-  return { ref, revealCls: shown ? 'reveal-shown' : 'reveal-hidden' }
+  return { ref, shown, revealCls: shown ? 'reveal-shown' : 'reveal-hidden' }
 }
 
 // A classic spool-shaped plastic push pin seen at a slight angle: glossy domed
@@ -154,10 +154,15 @@ export function Stamp({
     green: 'border-forest text-forest',
     outline: 'border-ink text-ink',
   }[variant]
+  // stamps punch down onto the page when they scroll into view (stamp-in
+  // keyframes in index.css)
+  const { ref, shown } = useReveal<HTMLSpanElement>()
   return (
     <span
+      ref={ref}
       className={cn(
         'inline-flex items-center justify-center rounded-sm border-2 border-dashed px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider rotate-[-2deg]',
+        shown ? 'stamp-shown' : 'stamp-hidden',
         variantClass,
         className
       )}

@@ -98,9 +98,37 @@
   animation: reveal-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Rubber-stamp entrance for Stamp badges: drops in oversized, lands with a
+   small squash, settles. Animates the standalone `scale` property so it
+   composes with the rotate/translate transforms stamps already carry. The
+   0.25s delay lets a stamp land just as its parent card finishes fading in. */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    scale: 2.2;
+  }
+  55% {
+    opacity: 1;
+    scale: 0.92;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.stamp-hidden {
+  opacity: 0;
+}
+
+.stamp-shown {
+  animation: stamp-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   /* never hide content for reduced-motion users waiting on an animation */
-  .reveal-hidden {
+  .reveal-hidden,
+  .stamp-hidden {
     opacity: 1;
   }
 }

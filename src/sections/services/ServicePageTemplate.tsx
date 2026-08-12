@@ -6,7 +6,6 @@ import {
   PushPin,
   Stamp,
   TornCard,
-  WashiTape,
   Polaroid,
 } from '@/components/BoardElements'
 
@@ -69,7 +68,6 @@ export function ServicePageTemplate({ c }: { c: ServiceConfig }) {
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <PushPin className="h-7 w-7" />
               </div>
-              <WashiTape color="green" className="absolute -top-2 left-8 w-24 rotate-[-3deg]" />
               <Stamp variant="green">{c.eyebrow}</Stamp>
               <h1 className="mt-5 font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-tight">
                 {c.h1a} <span className="text-forest">{c.h1b}</span>
