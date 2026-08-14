@@ -58,7 +58,7 @@ function ServiceCard({ s }: { s: Service }) {
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-paper antialiased">
-      <PageMeta title="Pricing — SecondChance Media" description="Every price on one page. Web design $97/mo, Local SEO $297/mo, Google Ad Grant management $397/mo, social media from $497/mo. Bundles from $397/mo." />
+      <PageMeta title="Pricing — SecondChance Media" description="Every price on one page. Web design $95/mo, Local SEO $295/mo, Google Ad Grant management $395/mo, social media from $495/mo. Bundles from $395/mo." />
       <SiteHeader />
       <main>
         {/* Hero — pinned to the corkboard, matching the service pages. The copy

@@ -33,7 +33,7 @@ export const SERVICES: Service[] = [
     short: 'Web Design',
     name: 'Animal Welfare Web Design',
     desc: `Built for phones first, because that's where 70%+ of your adopters are. Looks great, loads fast, turns clicks into applications and donations.`,
-    price: '$97',
+    price: '$95',
     setup: '$2,000 setup, waived with a 12-month commitment',
     items: [
       'Custom responsive design',
@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
     short: 'Local SEO',
     name: 'AI Search & Local SEO',
     desc: `When someone Googles "adopt a dog near me," you need to show up. We get you into the map pack — and into AI recommendations — and keep you there.`,
-    price: '$297',
+    price: '$295',
     setup: '$1,500 setup, waived with a 12-month commitment',
     items: [
       'Google Business Profile optimization',
@@ -71,7 +71,7 @@ export const SERVICES: Service[] = [
     short: 'Ad Grant',
     name: 'Google Ad Grant Management',
     desc: `$10,000/month in free Google Ads for qualifying 501(c)(3) animal organizations. We handle the application, compliance, and campaigns so every free dollar drives adoptions.`,
-    price: '$397',
+    price: '$395',
     setup: '$2,000 setup, waived with a 12-month commitment',
     items: [
       'Full grant application',
@@ -90,9 +90,9 @@ export const SERVICES: Service[] = [
     short: 'Social Media',
     name: 'Social Media Management',
     desc: 'Done-for-you social media. We create and post the pet spotlights, graphics, carousels, and captions every week. You approve one plan a month.',
-    price: '$497',
+    price: '$495',
     from: true,
-    plans: 'Starter $497 · Plus $797 · Premium $997',
+    plans: 'Starter $495 · Plus $795 · Premium $995',
     setup: '$2,000 setup, waived with a 12-month commitment',
     items: [
       'Starter: 2 platforms (Facebook + Instagram)',
@@ -112,7 +112,7 @@ export const SERVICES: Service[] = [
     short: 'Donor Email',
     name: 'Donor Email Nurture',
     desc: 'Turn one-time visitors into recurring donors, fosters, and volunteers with automated emails that actually get opened.',
-    price: '$397',
+    price: '$395',
     setup: '$1,500 setup, waived with a 12-month commitment',
     items: [
       'Automated new-donor welcome sequence',
@@ -151,7 +151,7 @@ export const BUNDLES: Bundle[] = [
     slug: 'website-local-seo',
     name: 'Website + Local SEO',
     tag: 'Where most rescues start',
-    price: '$397',
+    price: '$395',
     desc: 'A site that turns visits into adoption applications, plus the local search presence that makes sure nearby adopters find it in the first place.',
     includes: ['web', 'seo'],
     highlights: [
@@ -166,7 +166,7 @@ export const BUNDLES: Bundle[] = [
     slug: 'website-ad-grant',
     name: 'Website + Ad Grant',
     tag: 'A site, and traffic to fill it',
-    price: '$497',
+    price: '$495',
     desc: `A site built to convert, with up to $10,000 a month in free Google Ads pointed straight at it. Skip this one if local search is your bigger gap.`,
     includes: ['web', 'grant'],
     highlights: [
@@ -181,7 +181,7 @@ export const BUNDLES: Bundle[] = [
     slug: 'local-seo-ad-grant',
     name: 'Local SEO + Ad Grant',
     tag: 'Own the whole search page',
-    price: '$697',
+    price: '$695',
     desc: 'The map pack and the ads above it, both working for you. Built for organizations whose website is already doing its job.',
     includes: ['seo', 'grant'],
     highlights: [
