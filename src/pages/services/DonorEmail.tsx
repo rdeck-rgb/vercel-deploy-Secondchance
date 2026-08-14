@@ -8,8 +8,8 @@ export default function DonorEmail() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Donor Email Nurture for Animal Rescues — $395/mo | SecondChance Media"
-        description="Automated donor emails that turn one-time visitors into recurring donors, fosters, and volunteers. Welcome sequences, appeals, and recruitment. $395/month."
+        title="Donor Email Nurture for Animal Nonprofits — $395/mo | SecondChance Media"
+        description="Automated donor emails that turn one-time visitors into recurring donors, sponsors, and volunteers. For rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. $395/month."
       />
       <SiteHeader />
       <ServicePageTemplate

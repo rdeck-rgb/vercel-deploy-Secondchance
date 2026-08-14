@@ -135,7 +135,7 @@ export function AuditForm() {
               type="text"
               value={data.legalName}
               onChange={(e) => set('legalName', e.target.value)}
-              placeholder="River City Animal Rescue, Inc."
+              placeholder="River City Animal Sanctuary, Inc."
               maxLength={200}
               className={inputCls}
             />
@@ -165,7 +165,7 @@ export function AuditForm() {
                 type="url"
                 value={data.website}
                 onChange={(e) => set('website', e.target.value)}
-                placeholder="https://yourrescue.org"
+                placeholder="https://yourorg.org"
                 maxLength={255}
                 className={inputCls}
               />
@@ -209,7 +209,7 @@ export function AuditForm() {
               type="email"
               value={data.email}
               onChange={(e) => set('email', e.target.value)}
-              placeholder="you@yourrescue.org"
+              placeholder="you@yourorg.org"
               maxLength={255}
               className={inputCls}
             />

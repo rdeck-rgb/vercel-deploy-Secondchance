@@ -8,8 +8,8 @@ export default function SocialMedia() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Social Media Management for Animal Rescues — from $495/mo | SecondChance Media"
-        description="Done-for-you social media for animal welfare nonprofits. Pet spotlights, short-form video, branded graphics, and captions every week. Plans from $495/month."
+        title="Social Media Management for Animal Nonprofits — from $495/mo | SecondChance Media"
+        description="Done-for-you social media for rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. Animal spotlights, short-form video, branded graphics, and captions every week. Plans from $495/month."
       />
       <SiteHeader />
       <ServicePageTemplate

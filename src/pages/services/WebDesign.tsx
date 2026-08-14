@@ -8,8 +8,8 @@ export default function WebDesign() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Animal Welfare Web Design — $95/mo | SecondChance Media"
-        description="Mobile-first websites for animal rescues and shelters. Online donation integration, adoption and foster forms, and Petfinder sync. $95/month, ready in 1–2 weeks."
+        title="Web Design for Animal Nonprofits — $95/mo | SecondChance Media"
+        description="Mobile-first websites for rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. Donation integration, plus the forms your mission actually runs on. $95/month, ready in 1–2 weeks."
       />
       <SiteHeader />
       <ServicePageTemplate
@@ -22,12 +22,12 @@ export default function WebDesign() {
           priceNote: 'Starting at $95/month. Ready in 1-2 weeks.',
           heroImage: '/images/photos/golden-puppy-closeup.jpg',
           heroImageAlt: 'Golden retriever puppy resting her chin on the floor, looking up with big brown eyes',
-          trustPoints: ['Built for rescues only', 'Ready in 1-2 weeks', 'Hosting & support included'],
+          trustPoints: ['Built for animal nonprofits only', 'Ready in 1-2 weeks', 'Hosting & support included'],
           stats: [
             { value: '70%+', label: 'of your visitors are on a phone' },
             { value: '<2s', label: 'mobile load time, every site' },
             { value: '1-2 wks', label: 'from kickoff to live site' },
-            { value: '100%', label: 'built for rescues, nothing else' },
+            { value: '100%', label: 'built for animal welfare, nothing else' },
           ],
           problemEyebrow: 'The quiet loss',
           problemTitle: 'Your website is either making introductions — or ending them.',
@@ -37,11 +37,11 @@ export default function WebDesign() {
           ],
           imagine: `It's Saturday morning. A couple searches "adopt a dog near me," finds your rescue, and taps your site. In seconds they see available dogs with real photos, and an "Apply to Adopt" button that just works on their phone. By Sunday, your adoption coordinator is scheduling their meet-and-greet — because your website did the one job it exists to do.`,
           featuresEyebrow: "What's included",
-          featuresTitle: 'Everything your rescue needs. Nothing it doesn\'t.',
+          featuresTitle: 'Everything your organization needs. Nothing it doesn\'t.',
           featuresNote: 'All 9 features included at $95/mo. No paywalls, no "premium" add-ons, no surprises.',
           features: [
             { title: 'Mobile-First Design', desc: 'Built for phones first, because that is where most of your adopters are. Every page, button, and form works on a phone screen.' },
-            { title: 'Adoption Applications', desc: 'Forms that actually get completed — simple on mobile, and sent straight to your adoption coordinator.' },
+            { title: 'Applications & Intake Forms', desc: 'Forms that actually get completed — adoption, foster, wildlife intake, sponsorship, volunteer, or appointment requests, routed straight to the person who handles them.' },
             { title: 'SEO Foundation', desc: 'On-page SEO built into every page from day one — title tags, meta descriptions, heading structure, schema markup, and a sitemap submitted to Google so adopters can actually find you.' },
             { title: 'AEO & AI Search Visibility', desc: 'Answer Engine Optimization so your rescue shows up when someone asks ChatGPT, Perplexity, or Google\'s AI Overview "where can I adopt a dog near me." Structured data and content tuned for the way AI reads a page.' },
             { title: 'Events & Volunteer Sign-Up', desc: 'Adoption events, orientations, fundraisers — sign-ups without phone calls or spreadsheets.' },
@@ -57,7 +57,7 @@ export default function WebDesign() {
             metric: '[REAL RESULT — PENDING CONFIRMATION]',
           },
           pricingEyebrow: 'Pricing',
-          pricingTitle: 'Two options. One goal: more adoptions.',
+          pricingTitle: 'Two options. One goal: more people saying yes.',
           plans: [
             {
               name: 'Tailored Website',
@@ -66,10 +66,10 @@ export default function WebDesign() {
               popular: true,
               timeline: 'Ready in 1-2 weeks',
               items: [
-                'Choose from 6 rescue-specific designs',
+                'Choose from 6 animal-nonprofit designs',
                 'Customized with your logo, colors & animals',
                 'Mobile-first responsive design',
-                'Adoption & foster application forms',
+                'Application, intake & sponsorship forms',
                 'SEO foundation (schema, sitemap, meta)',
                 'AEO & AI search visibility setup',
                 'SSL, hosting & daily backups',
@@ -88,9 +88,9 @@ export default function WebDesign() {
                 'Everything in Tailored, plus:',
                 'Planning session: we map every page before anything is built',
                 'Fully custom design, built from scratch',
-                'Dedicated designer assigned to your rescue',
+                'Dedicated designer assigned to your organization',
                 'Multi-location & chapter architecture',
-                'Advanced integrations (shelter software, CRMs)',
+                'Advanced integrations (shelter & sanctuary software, CRMs)',
                 'Custom functionality (animal search, foster portal)',
                 'Extended content migration',
                 'Priority support & dedicated account manager',

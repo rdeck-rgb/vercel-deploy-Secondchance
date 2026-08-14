@@ -8,8 +8,8 @@ export default function LocalSEO() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="AI Search & Local SEO for Animal Rescues — $295/mo | SecondChance Media"
-        description="Get found when families search &quot;adopt a dog near me.&quot; Google Business Profile optimization, 25+ directory listings, and AI search visibility. $295/month, live in 14 days."
+        title="AI Search & Local SEO for Animal Nonprofits — $295/mo | SecondChance Media"
+        description="Get found when someone nearby searches for you — to adopt, to report injured wildlife, or to book a low-cost clinic. For rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. $295/month, live in 14 days."
       />
       <SiteHeader />
       <ServicePageTemplate

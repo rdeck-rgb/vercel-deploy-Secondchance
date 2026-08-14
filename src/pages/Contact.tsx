@@ -51,7 +51,7 @@ export default function Contact() {
               <div>
                 <Stamp variant="outline" className="mb-4">Get in touch</Stamp>
                 <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink font-serif">
-                  Let's talk about your rescue
+                  Let's talk about your organization
                 </h1>
                 <p className="mt-5 text-lg text-ink/65 leading-relaxed">
                   Questions about pricing, the Google Ad Grant, or whether we're the right fit?
@@ -123,12 +123,12 @@ export default function Contact() {
                       </div>
                       <div>
                         <label htmlFor="corg" className="block text-sm font-bold text-ink mb-1.5">Rescue / Organization</label>
-                        <input id="corg" required className={inputCls} placeholder="River City Animal Rescue" value={org} onChange={(e) => setOrg(e.target.value)} />
+                        <input id="corg" required className={inputCls} placeholder="River City Animal Sanctuary" value={org} onChange={(e) => setOrg(e.target.value)} />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="cemail" className="block text-sm font-bold text-ink mb-1.5">Email</label>
-                      <input id="cemail" type="email" required className={inputCls} placeholder="you@yourrescue.org" value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <input id="cemail" type="email" required className={inputCls} placeholder="you@yourorg.org" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div>
                       <label htmlFor="ctopic" className="block text-sm font-bold text-ink mb-1.5">What's this about?</label>
@@ -142,7 +142,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="cmsg" className="block text-sm font-bold text-ink mb-1.5">Message</label>
-                      <textarea id="cmsg" rows={4} required className={`${inputCls} resize-none`} placeholder="Tell us a little about your rescue and what you need..." value={msg} onChange={(e) => setMsg(e.target.value)} />
+                      <textarea id="cmsg" rows={4} required className={`${inputCls} resize-none`} placeholder="Tell us a little about your organization and what you need..." value={msg} onChange={(e) => setMsg(e.target.value)} />
                     </div>
                     {/* Honeypot — off-screen so bots fill it, skipped by people and AT. */}
                     <div className={honeypotWrapCls} aria-hidden="true">

@@ -308,7 +308,7 @@ export default function Order() {
                       type="text"
                       value={data.orgName}
                       onChange={(e) => update('orgName', e.target.value)}
-                      placeholder="River City Animal Rescue, Inc."
+                      placeholder="River City Animal Sanctuary, Inc."
                       maxLength={200}
                       required
                       className={inputCls}
@@ -351,7 +351,7 @@ export default function Order() {
                         type="email"
                         value={data.email}
                         onChange={(e) => update('email', e.target.value)}
-                        placeholder="you@yourrescue.org"
+                        placeholder="you@yourorg.org"
                         maxLength={255}
                         required
                         className={inputCls}
@@ -364,7 +364,7 @@ export default function Order() {
                         type="text"
                         value={data.website}
                         onChange={(e) => update('website', e.target.value)}
-                        placeholder="https://yourrescue.org"
+                        placeholder="https://yourorg.org"
                         maxLength={255}
                         className={inputCls}
                       />
