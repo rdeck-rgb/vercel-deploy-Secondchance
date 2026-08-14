@@ -65,7 +65,7 @@ export default function GoogleAdGrant() {
             {
               name: 'Grant Management',
               price: '$395/month',
-              setup: '$2,000 one-time setup fee, waived with 12-month commitment',
+              setup: 'Setup fee waived with a 12-month commitment',
               popular: true,
               timeline: 'Honest timeline: Google approval takes a few weeks — we keep you posted the whole way.',
               items: [
@@ -97,7 +97,7 @@ export default function GoogleAdGrant() {
             { q: 'Can the ads target just our local area?', a: 'Yes. Campaigns are aimed at your service area, so the free budget reaches people who can actually adopt, foster, volunteer, or donate.' },
             { q: 'What can we advertise?', a: 'Adoptable animals, foster recruitment, donation pages, volunteer sign-ups, and events. Google does not allow ads purely for selling merchandise, but everything mission-related is fair game.' },
             { q: 'How long until the ads are live?', a: 'Honestly: Google’s approval is not instant. Expect a few weeks from application to live campaigns. Anyone who promises same-week approval is overselling — we would rather give you the real timeline.' },
-            { q: 'How does billing work?', a: '$395/month for management with a $2,000 one-time setup fee, waived with a 12-month commitment. The $10,000 in monthly ad spend is completely free — you never pay Google anything.' },
+            { q: 'How does billing work?', a: '$395/month for management with a one-time setup fee, waived with a 12-month commitment. The $10,000 in monthly ad spend is completely free — you never pay Google anything.' },
           ],
           ctaTitle: 'Your rescue may be leaving $120,000 a year unclaimed.',
           ctaSub: 'The free eligibility check answers the only question that matters first: do you qualify?',

@@ -62,7 +62,7 @@ export default function WebDesign() {
             {
               name: 'Tailored Website',
               price: '$95/month',
-              setup: '$2,000 one-time setup fee, waived with 12-month commitment',
+              setup: 'Setup fee waived with a 12-month commitment',
               popular: true,
               timeline: 'Ready in 1-2 weeks',
               items: [
@@ -82,7 +82,7 @@ export default function WebDesign() {
             {
               name: 'Custom Website',
               price: 'Custom',
-              setup: 'Starts with a $2,500 deposit applied to your final project price',
+              setup: 'Starts with a deposit applied to your final project price',
               timeline: '8-12 weeks from kickoff to launch',
               items: [
                 'Everything in Tailored, plus:',
@@ -110,7 +110,7 @@ export default function WebDesign() {
             { q: 'Do you move our existing content?', a: 'Yes. We migrate all content from your main pages at no extra cost, and clean up content that has gotten messy over the years.' },
             { q: 'How is this different from Wix or Squarespace?', a: 'Three things: it is built specifically for rescues (adoption forms, SEO and AEO baked in from day one), a dedicated team handles everything instead of you wrestling a template, and it is designed around one goal — turning visitors into adopters and donors.' },
             { q: 'Do we own the website?', a: 'You own all your content, images, and data. If you ever cancel, we provide a full export so you are never locked in.' },
-            { q: 'How does billing work?', a: 'Tailored websites are billed monthly at $95/mo with a $2,000 one-time setup fee. Commit to 12 months and the setup fee is waived — the option most rescues choose.' },
+            { q: 'How does billing work?', a: 'Tailored websites are billed monthly at $95/mo with a one-time setup fee. Commit to 12 months and the setup fee is waived — the option most rescues choose.' },
             { q: 'We are a tiny foster-based rescue. Is this overkill?', a: 'Not at all. Small rescues benefit the most — you have no building and no foot traffic, so your website IS your front door. The $95/mo plan was built for organizations exactly your size.' },
             { q: 'Can the site take monthly recurring donations?', a: 'Donation integration can be added as a custom line item — ask us about it during your free eligibility check.' },
           ],

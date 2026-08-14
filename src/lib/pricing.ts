@@ -34,7 +34,7 @@ export const SERVICES: Service[] = [
     name: 'Animal Welfare Web Design',
     desc: `Built for phones first, because that's where 70%+ of your adopters are. Looks great, loads fast, turns clicks into applications and donations.`,
     price: '$95',
-    setup: '$2,000 setup, waived with a 12-month commitment',
+    setup: 'Setup waived with a 12-month commitment',
     items: [
       'Custom responsive design',
       'Mobile-first build',
@@ -53,7 +53,7 @@ export const SERVICES: Service[] = [
     name: 'AI Search & Local SEO',
     desc: `When someone Googles "adopt a dog near me," you need to show up. We get you into the map pack — and into AI recommendations — and keep you there.`,
     price: '$295',
-    setup: '$1,500 setup, waived with a 12-month commitment',
+    setup: 'Setup waived with a 12-month commitment',
     items: [
       'Google Business Profile optimization',
       '25+ directory citations',
@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
     name: 'Google Ad Grant Management',
     desc: `$10,000/month in free Google Ads for qualifying 501(c)(3) animal organizations. We handle the application, compliance, and campaigns so every free dollar drives adoptions.`,
     price: '$395',
-    setup: '$2,000 setup, waived with a 12-month commitment',
+    setup: 'Setup waived with a 12-month commitment',
     items: [
       'Full grant application',
       '95%+ approval rate',
@@ -93,7 +93,7 @@ export const SERVICES: Service[] = [
     price: '$495',
     from: true,
     plans: 'Starter $495 · Plus $795 · Premium $995',
-    setup: '$2,000 setup, waived with a 12-month commitment',
+    setup: 'Setup waived with a 12-month commitment',
     items: [
       'Starter: 2 platforms (Facebook + Instagram)',
       'Plus: 4 platforms (Facebook, Instagram + 2 more)',
@@ -113,7 +113,7 @@ export const SERVICES: Service[] = [
     name: 'Donor Email Nurture',
     desc: 'Turn one-time visitors into recurring donors, fosters, and volunteers with automated emails that actually get opened.',
     price: '$395',
-    setup: '$1,500 setup, waived with a 12-month commitment',
+    setup: 'Setup waived with a 12-month commitment',
     items: [
       'Automated new-donor welcome sequence',
       'Monthly donation appeal',

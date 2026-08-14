@@ -236,8 +236,8 @@ export function AuditForm() {
         {sendError && (
           <p className="text-sm font-medium text-stamp-red" role="alert">
             Something went wrong sending that. Please try again, or email{' '}
-            <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-              mdeck@adgrantconsultant.com
+            <a className="underline" href="mailto:mel@click2-ai.com">
+              mel@click2-ai.com
             </a>
             .
           </p>

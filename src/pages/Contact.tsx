@@ -65,11 +65,11 @@ export default function Contact() {
                     </span>
                     305-709-1382
                   </a>
-                  <a href="mailto:mdeck@adgrantconsultant.com" className="flex items-center gap-3 text-ink/80 hover:text-stamp-red transition-colors">
+                  <a href="mailto:mel@click2-ai.com" className="flex items-center gap-3 text-ink/80 hover:text-stamp-red transition-colors">
                     <span className="flex h-10 w-10 items-center justify-center rounded-md bg-forest/10 text-forest">
                       <Mail className="h-5 w-5" />
                     </span>
-                    mdeck@adgrantconsultant.com
+                    mel@click2-ai.com
                   </a>
                   <div className="flex items-center gap-3 text-ink/80">
                     <span className="flex h-10 w-10 items-center justify-center rounded-md bg-forest/10 text-forest">
@@ -115,7 +115,7 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <h2 className="text-xl font-bold text-ink font-serif">Send us a message</h2>
-                    <p className="text-sm text-ink/60">A real person reads every message — we reply within one business day. Prefer email? <a href="mailto:mdeck@adgrantconsultant.com" className="font-bold text-stamp-red hover:underline">mdeck@adgrantconsultant.com</a></p>
+                    <p className="text-sm text-ink/60">A real person reads every message — we reply within one business day. Prefer email? <a href="mailto:mel@click2-ai.com" className="font-bold text-stamp-red hover:underline">mel@click2-ai.com</a></p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="cname" className="block text-sm font-bold text-ink mb-1.5">Name</label>
@@ -161,8 +161,8 @@ export default function Contact() {
                     {sendError && (
                       <p className="text-sm font-medium text-stamp-red" role="alert">
                         Something went wrong sending that. Please try again, or email{' '}
-                        <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-                          mdeck@adgrantconsultant.com
+                        <a className="underline" href="mailto:mel@click2-ai.com">
+                          mel@click2-ai.com
                         </a>
                         .
                       </p>

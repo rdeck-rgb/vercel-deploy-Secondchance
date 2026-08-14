@@ -64,7 +64,7 @@ export default function LocalSEO() {
             {
               name: 'Local Search & Visibility',
               price: '$295/month',
-              setup: '$1,500 one-time setup fee, waived with 12-month commitment',
+              setup: 'Setup fee waived with a 12-month commitment',
               popular: true,
               timeline: 'Live in 14 days. Honest expectation: real movement in about 90 days.',
               items: [
@@ -92,7 +92,7 @@ export default function LocalSEO() {
             { q: 'Will this work for a small foster-based rescue?', a: 'Often better than for big organizations. You are competing in a smaller area with fewer competitors — a foster network in a mid-size town can become the obvious local answer surprisingly fast.' },
             { q: 'How long until we see results?', a: 'Honestly: optimizations go live in 14 days, Google typically reflects changes in 4-6 weeks, and most organizations see real movement around 90 days. We report monthly so you can watch it happen.' },
             { q: 'Do we need a website from you for this to work?', a: 'No. We improve your visibility regardless of who built your site. That said, if your site also needs work, our $395/mo Website + Local SEO bundle is the most cost-effective path.' },
-            { q: 'What if we want to cancel?', a: 'The 12-month commitment waives your $1,500 setup fee. After 12 months you are month-to-month — cancel anytime with 30 days notice, no penalties.' },
+            { q: 'What if we want to cancel?', a: 'The 12-month commitment waives your setup fee. After 12 months you are month-to-month — cancel anytime with 30 days notice, no penalties.' },
             { q: 'Do you guarantee first-page rankings?', a: 'No honest provider does — Google and AI assistants control their own answers. What we guarantee is the work: accurate listings, an active profile, real reviews, and a website search engines can read. Those are the inputs that drive the outcomes.' },
             { q: 'Can this help recruit fosters too, not just adopters?', a: 'Yes. We aim at foster-intent searches too — "foster kittens near me," "become a dog foster" — and make sure your foster page is what those searchers find.' },
           ],

@@ -117,9 +117,9 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-forest-dark shrink-0" />
                 305-709-1382
               </a>
-              <a href="mailto:mdeck@adgrantconsultant.com" className="flex items-center gap-2.5 hover:text-ink transition-colors">
+              <a href="mailto:mel@click2-ai.com" className="flex items-center gap-2.5 hover:text-ink transition-colors">
                 <Mail className="h-4 w-4 text-forest-dark shrink-0" />
-                mdeck@adgrantconsultant.com
+                mel@click2-ai.com
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-forest-dark shrink-0 mt-0.5" />

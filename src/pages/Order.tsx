@@ -137,7 +137,7 @@ export default function Order() {
               </p>
               <div className="mt-8 space-y-3">
                 <a
-                  href="mailto:mdeck@adgrantconsultant.com"
+                  href="mailto:mel@click2-ai.com"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-stamp-red px-6 py-3 text-sm font-bold text-white shadow-[0_4px_0_rgba(42,31,22,0.18)] transition-all hover:translate-y-0.5 hover:shadow-none active:translate-y-1 active:shadow-none"
                 >
                   <Mail className="h-4 w-4" />
@@ -402,8 +402,8 @@ export default function Order() {
                 {sendError && (
                   <p className="text-sm font-medium text-stamp-red" role="alert">
                     Something went wrong sending that. Please try again, or email{' '}
-                    <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-                      mdeck@adgrantconsultant.com
+                    <a className="underline" href="mailto:mel@click2-ai.com">
+                      mel@click2-ai.com
                     </a>
                     .
                   </p>

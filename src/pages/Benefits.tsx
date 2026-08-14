@@ -338,10 +338,10 @@ export default function Benefits() {
               <div className="shrink-0 text-left lg:text-right">
                 <p className="text-xs font-semibold uppercase tracking-widest text-paper/50 font-mono">Contact Us</p>
                 <a
-                  href="mailto:mdeck@adgrantconsultant.com"
+                  href="mailto:mel@click2-ai.com"
                   className="mt-2 block text-base font-medium text-paper hover:text-forest transition-colors"
                 >
-                  mdeck@adgrantconsultant.com
+                  mel@click2-ai.com
                 </a>
               </div>
             </div>

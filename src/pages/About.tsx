@@ -9,7 +9,7 @@ import { CorkBoard, TornCard, PushPin, Polaroid, Stamp } from '@/components/Boar
 export default function About() {
   return (
     <div className="min-h-screen bg-paper antialiased">
-      <PageMeta title="About Melanie Deck — SecondChance Media" description="Teacher, animal advocate, and the person who reads Google’s rulebook so you don’t have to. Learn why SecondChance Media exists and who’s behind it." />
+      <PageMeta title="About Melanie Deck — SecondChance Media" description="Middle school Science teacher, animal advocate, and the person who reads Google’s rulebook so you don’t have to. Learn why SecondChance Media exists and who’s behind it." />
       <SiteHeader />
       <main>
         {/* Hero — first person */}
@@ -25,7 +25,7 @@ export default function About() {
                   I got into helping nonprofits because there is so much need for resources — volunteers, donations, and the steady funding it takes to make the work actually work.
                 </p>
                 <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-ink font-serif leading-tight">
-                  I'm Melanie. Teacher, animal advocate,{' '}
+                  I'm Melanie. A middle school Science teacher, animal advocate,{' '}
                   <span className="text-stamp-red">and the person who reads Google's rulebook so you don't have to.</span>
                 </h1>
                 <p className="mt-4 text-base text-ink/70 leading-relaxed">
@@ -58,17 +58,20 @@ export default function About() {
         <section className="bg-paper border-y-2 border-ink/10 py-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 space-y-6 text-lg text-ink/75 leading-relaxed">
             <p>
-              I didn't come to this through marketing. I came through a kennel door — volunteering
-              at shelters, fostering the ones nobody picked, learning that the hardest part of
-              rescue work is rarely the animals. It's the math. Too many of them, not enough of
-              you, and a community that would help if only they knew you were there.
+              I am an animal lover who would love for every animal to get a loving home like my
+              pets. I would like more than anything for every single animal to be loved like mine.
+              Besides being a teacher for 27 years, I volunteer with my dogs at local assisted
+              living facilities and also volunteer at hospitals, and mental health facilities for
+              children. The love for this started when my city experienced a tragedy at our local
+              high school in Parkland, Florida and the Therapy dogs came in and seemed to heal each
+              of us with their unconditional love.
             </p>
             <p>
               Somewhere along the way I fell down the rabbit hole of how Google works — and
               discovered that Google has quietly offered registered nonprofits $10,000 a month in
-              free advertising since 2003. The shelters I loved were drowning while that money sat
-              unclaimed, because the application is fussy and the rules are written for advertising
-              people, not animal people.
+              free advertising since 2003. The local animal shelters I loved were drowning while
+              that money sat unclaimed, because the application is fussy and the rules are written
+              for advertising people, not animal people.
             </p>
             <p>
               So I became the person who translates. SecondChance Media exists for one reason: to
