@@ -8,8 +8,8 @@ export default function DonorEmail() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Donor Email Nurture for Animal Rescues — $397/mo | SecondChance Media"
-        description="Automated donor emails that turn one-time visitors into recurring donors, fosters, and volunteers. Welcome sequences, appeals, and recruitment. $397/month."
+        title="Donor Email Nurture for Animal Nonprofits — $395/mo | SecondChance Media"
+        description="Automated donor emails that turn one-time visitors into recurring donors, sponsors, and volunteers. For rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. $395/month."
       />
       <SiteHeader />
       <ServicePageTemplate
@@ -19,7 +19,7 @@ export default function DonorEmail() {
           h1a: 'Most people who visit your site leave and never come back.',
           h1b: 'Email is how you get them back.',
           sub: `Someone reads a happy-tails story, thinks "what a good dog," and closes the tab. That's the end of it — unless you have a way to keep talking to them. We build the automated emails that turn a one-time visitor into a monthly donor, a foster, or a volunteer, and we keep them running.`,
-          priceNote: '$397/month. $1,500 setup, waived with a 12-month commitment.',
+          priceNote: '$395/month. Setup waived with a 12-month commitment.',
           trustPoints: ['Written and built for you', 'Runs on its own once live', 'One plain-English report a month'],
           stats: [
             { value: '5', label: 'sequence types we build — welcome, monthly appeal, foster and volunteer recruitment, events, re-engagement' },
@@ -59,8 +59,8 @@ export default function DonorEmail() {
           plans: [
             {
               name: 'Donor Email Nurture',
-              price: '$397/mo',
-              setup: '$1,500 setup, waived with a 12-month commitment',
+              price: '$395/mo',
+              setup: 'Setup waived with a 12-month commitment',
               items: [
                 'Automated new-donor welcome sequence',
                 'Monthly donation appeal',
@@ -79,7 +79,7 @@ export default function DonorEmail() {
             { n: '03', title: 'It runs, and you get a report', desc: 'The automations run on their own from then on. Once a month you get a short plain-English summary of what went out and what it brought in.' },
           ],
           faqs: [
-            { q: 'How much does it cost?', a: 'It is $397 a month, plus a one-time $1,500 setup fee that is waived if you commit for 12 months. Most organizations take the 12-month option because it saves money from day one.' },
+            { q: 'How much does it cost?', a: 'It is $395 a month, plus a one-time setup fee that is waived if you commit for 12 months. Most organizations take the 12-month option because it saves money from day one.' },
             { q: 'We barely have an email list. Is this worth it?', a: 'Often yes, but not always first. If almost nobody is reaching your site yet, your money usually does more in Local SEO or the Ad Grant, and email pays off once traffic exists. Tell us your numbers and we will say honestly which one to do first.' },
             { q: 'Do we have to write any of it?', a: 'No. We write everything and send it to you for approval before it goes live. You know your animals and your community, so your edits make it better — but the drafting is on us.' },
             { q: 'Which email platform do you use?', a: 'We work with what you already have where we can — Mailchimp, Constant Contact, Kit, and the built-in tools in most donation platforms. If you have nothing yet, we will set you up on something that fits your list size and budget.' },

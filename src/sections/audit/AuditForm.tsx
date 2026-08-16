@@ -135,7 +135,7 @@ export function AuditForm() {
               type="text"
               value={data.legalName}
               onChange={(e) => set('legalName', e.target.value)}
-              placeholder="River City Animal Rescue, Inc."
+              placeholder="River City Animal Sanctuary, Inc."
               maxLength={200}
               className={inputCls}
             />
@@ -165,7 +165,7 @@ export function AuditForm() {
                 type="url"
                 value={data.website}
                 onChange={(e) => set('website', e.target.value)}
-                placeholder="https://yourrescue.org"
+                placeholder="https://yourorg.org"
                 maxLength={255}
                 className={inputCls}
               />
@@ -209,7 +209,7 @@ export function AuditForm() {
               type="email"
               value={data.email}
               onChange={(e) => set('email', e.target.value)}
-              placeholder="you@yourrescue.org"
+              placeholder="you@yourorg.org"
               maxLength={255}
               className={inputCls}
             />
@@ -236,8 +236,8 @@ export function AuditForm() {
         {sendError && (
           <p className="text-sm font-medium text-stamp-red" role="alert">
             Something went wrong sending that. Please try again, or email{' '}
-            <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-              mdeck@adgrantconsultant.com
+            <a className="underline" href="mailto:mel@click2-ai.com">
+              mel@click2-ai.com
             </a>
             .
           </p>

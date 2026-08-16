@@ -272,6 +272,7 @@ export function Polaroid({
   objectPosition = 'center',
   size = 'md',
   aspect = 'landscape',
+  priority = false,
 }: {
   src: string
   alt: string
@@ -281,6 +282,8 @@ export function Polaroid({
   objectPosition?: string
   size?: 'sm' | 'md' | 'lg' | 'xl'
   aspect?: 'landscape' | 'portrait' | 'square'
+  /** Set on above-the-fold photos; lazy-loading them delays the LCP. */
+  priority?: boolean
 }) {
   const width = {
     sm: 'w-40',
@@ -313,7 +316,8 @@ export function Polaroid({
       <img
         src={src}
         alt={alt}
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : undefined}
         className={cn(
           'object-cover rounded-sm border border-kraft',
           width,

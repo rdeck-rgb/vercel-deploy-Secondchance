@@ -28,7 +28,7 @@ const PRIVACY: Section[] = [
     h: 'Who we are',
     body: [
       'SecondChance Media is a division of click2.ai. We provide digital marketing services — Google Ad Grant management, local and AI search visibility, website design, and social media support and training — to animal welfare nonprofits in the United States.',
-      'This policy explains what we collect through this website, what we do with it, and the choices you have. You can reach us any time at mdeck@adgrantconsultant.com, 305-709-1382, or 7420 Wisteria Ave, Parkland, Florida 33076.',
+      'This policy explains what we collect through this website, what we do with it, and the choices you have. You can reach us any time at mel@click2-ai.com, 305-709-1382, or 7420 Wisteria Ave, Parkland, Florida 33076.',
     ],
   },
   {
@@ -112,7 +112,7 @@ const PRIVACY: Section[] = [
   {
     h: 'Your rights and choices',
     body: [
-      'You can ask us to give you a copy of the personal information we hold about you, correct anything inaccurate, delete it, or stop using it for a particular purpose. Email mdeck@adgrantconsultant.com and we will respond within 30 days. We will not charge you or treat you differently for exercising these rights.',
+      'You can ask us to give you a copy of the personal information we hold about you, correct anything inaccurate, delete it, or stop using it for a particular purpose. Email mel@click2-ai.com and we will respond within 30 days. We will not charge you or treat you differently for exercising these rights.',
       'Depending on where you live — including California, other US states with privacy laws, the EU, or the UK — you may have additional rights, such as data portability or the right to lodge a complaint with a regulator. We honor these requests regardless of where you are.',
     ],
   },
@@ -251,7 +251,7 @@ const TERMS: Section[] = [
   {
     h: 'Contact',
     body: [
-      'Questions about these terms? Email mdeck@adgrantconsultant.com, call 305-709-1382, or write to SecondChance Media, 7420 Wisteria Ave, Parkland, Florida 33076.',
+      'Questions about these terms? Email mel@click2-ai.com, call 305-709-1382, or write to SecondChance Media, 7420 Wisteria Ave, Parkland, Florida 33076.',
     ],
   },
 ]

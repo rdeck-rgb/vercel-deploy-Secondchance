@@ -2,6 +2,7 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { PageMeta } from '@/components/PageMeta'
 import { Hero } from '@/sections/Hero'
+import { FullService } from '@/sections/FullService'
 import { SocialProof } from '@/sections/SocialProof'
 import { PhotoStrip } from '@/sections/PhotoStrip'
 import { Problem } from '@/sections/Problem'
@@ -22,6 +23,7 @@ export default function Home() {
       <SiteHeader />
       <main id="main-content">
         <Hero />
+        <FullService />
         <SocialProof />
         <PhotoStrip />
         <Primer />

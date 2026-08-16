@@ -5,7 +5,7 @@ import { StickyMobileCTA } from '@/components/StickyMobileCTA'
 import { PageMeta } from '@/components/PageMeta'
 import { Footer } from '@/sections/Footer'
 import { TornCard, PushPin, Stamp, CorkBoard } from '@/components/BoardElements'
-import { SERVICES, BUNDLES, bundleComponents, type Service } from '@/lib/pricing'
+import { SERVICES, BUNDLES, bundleComponents, type Service, type Bundle } from '@/lib/pricing'
 
 /**
  * Everything included is listed on the card itself — no toggle — with the price
@@ -55,10 +55,94 @@ function ServiceCard({ s }: { s: Service }) {
   )
 }
 
+const FEATURED_BUNDLE = BUNDLES.find((b) => b.popular) ?? BUNDLES[0]
+const OTHER_BUNDLES = BUNDLES.filter((b) => b !== FEATURED_BUNDLE)
+
+/**
+ * Stacked by default so the cards line up in a grid. The featured bundle leads
+ * the section at full width, where a stacked price would strand the CTA a
+ * screen below the name, so there it sits in a panel beside the details.
+ */
+function BundleCard({ b, featured = false }: { b: Bundle; featured?: boolean }) {
+  const price = (
+    <>
+      <p className="font-mono text-3xl font-bold text-forest">
+        {b.price}
+        <span className="text-lg">/mo</span>
+      </p>
+      {b.save && <p className="mt-1 text-sm font-bold text-stamp-red">{b.save}</p>}
+      <p className="mt-1 text-xs text-ink/60">Setup fees waived with a 12-month agreement</p>
+    </>
+  )
+  const cta = (
+    <Link
+      to={`/order/${b.slug}`}
+      className={`mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-bold transition-colors shadow-[0_4px_0_rgba(42,31,22,0.15)] ${
+        b.popular ? 'bg-stamp-red text-white hover:bg-stamp-red-dark' : 'bg-ink text-paper hover:bg-ink/90'
+      }`}
+    >
+      Get Started
+      <ArrowRight className="h-4 w-4" />
+    </Link>
+  )
+  const details = (
+    <>
+      <p className="mt-4 text-sm text-ink/65 leading-relaxed">{b.desc}</p>
+      <ul className={`mt-5 space-y-2.5 ${featured ? '' : 'flex-1'}`}>
+        {b.highlights.map((item) => (
+          <li key={item} className="flex items-start gap-2.5 text-sm text-ink/70">
+            <Check className="mt-0.5 h-4 w-4 shrink-0 text-forest" strokeWidth={3} />
+            {item}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-5 border-t-2 border-dashed border-ink/10 pt-4 font-mono text-[11px] font-semibold uppercase tracking-wider text-ink/60">
+        {bundleComponents(b)}
+      </p>
+    </>
+  )
+
+  return (
+    <TornCard className="relative flex flex-col p-7 sm:p-8" torn="bottom">
+      <div className="absolute -top-3 left-8">
+        <PushPin className="h-5 w-5" />
+      </div>
+      {b.popular && (
+        <div className="mb-3">
+          <Stamp variant="red">Most Popular</Stamp>
+        </div>
+      )}
+      {featured ? (
+        <div className="grid gap-7 lg:grid-cols-5 lg:gap-8">
+          <div className="lg:col-span-3">
+            <h3 className="text-xl font-bold text-ink font-serif">{b.name}</h3>
+            <p className="mt-1 text-sm text-ink/60">{b.tag}</p>
+            {details}
+          </div>
+          <div className="lg:col-span-2">
+            <div className="rounded-lg border-2 border-ink/10 bg-kraft/50 p-6">
+              {price}
+              {cta}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <h3 className="text-lg font-bold text-ink font-serif">{b.name}</h3>
+          <p className="mt-1 text-sm text-ink/60">{b.tag}</p>
+          <div className="mt-3">{price}</div>
+          {details}
+          {cta}
+        </>
+      )}
+    </TornCard>
+  )
+}
+
 export default function Pricing() {
   return (
     <div className="min-h-screen bg-paper antialiased">
-      <PageMeta title="Pricing — SecondChance Media" description="Every price on one page. Web design $97/mo, Local SEO $297/mo, Google Ad Grant management $397/mo, social media from $497/mo. Bundles from $397/mo." />
+      <PageMeta title="Pricing — SecondChance Media" description="Every price on one page. Web design $95/mo, Local SEO $295/mo, Google Ad Grant management $395/mo, social media from $495/mo. Bundles from $395/mo." />
       <SiteHeader />
       <main>
         {/* Hero — pinned to the corkboard, matching the service pages. The copy
@@ -90,7 +174,7 @@ export default function Pricing() {
             <p className="mt-4 text-sm text-ink/55 leading-relaxed">
               Two more prices, so this page really does have all of them: additional shelter
               locations on Local SEO are $250/mo each, and a fully custom website is quoted per
-              project and starts with a $2,500 deposit.
+              project and starts with a deposit.
             </p>
             <div className="mt-10 grid gap-6">
               {SERVICES.map((s) => (
@@ -113,51 +197,12 @@ export default function Pricing() {
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink font-serif">Need more than one?</h2>
               <p className="mt-3 text-ink/65">Most growing organizations run two or three of these together. One team, one invoice, one strategy instead of three vendors pointing fingers.</p>
             </div>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2">
-              {BUNDLES.map((b) => (
-                <TornCard
-                  key={b.slug}
-                  className="relative flex flex-col p-7 sm:p-8"
-                  torn="bottom"
-                >
-                  <div className="absolute -top-3 left-8">
-                    <PushPin className="h-5 w-5" />
-                  </div>
-                  {b.popular && (
-                    <div className="mb-3">
-                      <Stamp variant="red">Most Popular</Stamp>
-                    </div>
-                  )}
-                  <h3 className="text-lg font-bold text-ink font-serif">{b.name}</h3>
-                  <p className="mt-1 text-sm text-ink/60">{b.tag}</p>
-                  <p className="mt-3 font-mono text-3xl font-bold text-forest">
-                    {b.price}
-                    <span className="text-lg">/mo</span>
-                  </p>
-                  {b.save && <p className="mt-1 text-sm font-bold text-stamp-red">{b.save}</p>}
-                  <p className="mt-1 text-xs text-ink/60">Setup fees waived with a 12-month agreement</p>
-                  <p className="mt-4 text-sm text-ink/65 leading-relaxed">{b.desc}</p>
-                  <ul className="mt-5 flex-1 space-y-2.5">
-                    {b.highlights.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm text-ink/70">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-forest" strokeWidth={3} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-5 border-t-2 border-dashed border-ink/10 pt-4 font-mono text-[11px] font-semibold uppercase tracking-wider text-ink/60">
-                    {bundleComponents(b)}
-                  </p>
-                  <Link
-                    to={`/order/${b.slug}`}
-                    className={`mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-bold transition-colors shadow-[0_4px_0_rgba(42,31,22,0.15)] ${
-                      b.popular ? 'bg-stamp-red text-white hover:bg-stamp-red-dark' : 'bg-ink text-paper hover:bg-ink/90'
-                    }`}
-                  >
-                    Get Started
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </TornCard>
+            <div className="mt-10">
+              <BundleCard b={FEATURED_BUNDLE} featured />
+            </div>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {OTHER_BUNDLES.map((b) => (
+                <BundleCard key={b.slug} b={b} />
               ))}
             </div>
 

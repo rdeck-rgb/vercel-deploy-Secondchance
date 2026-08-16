@@ -8,8 +8,8 @@ export default function WebDesign() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Animal Welfare Web Design — $97/mo | SecondChance Media"
-        description="Mobile-first websites for animal rescues and shelters. Online donation integration, adoption and foster forms, and Petfinder sync. $97/month, ready in 1–2 weeks."
+        title="Web Design for Animal Nonprofits — $95/mo | SecondChance Media"
+        description="Mobile-first websites for rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. Donation integration, plus the forms your mission actually runs on. $95/month, ready in 1–2 weeks."
       />
       <SiteHeader />
       <ServicePageTemplate
@@ -19,15 +19,15 @@ export default function WebDesign() {
           h1a: 'A family fell in love with your dog tonight.',
           h1b: 'Did your website let them apply?',
           sub: `Most adopters meet your animals on a phone screen before they ever meet them in person. If the site is slow or the form is broken, that connection ends there — quietly, and nobody ever tells you. We build rescue websites that turn those moments into adoption inquiries, foster applications, and donations.`,
-          priceNote: 'Starting at $97/month. Ready in 1-2 weeks.',
+          priceNote: 'Starting at $95/month. Ready in 1-2 weeks.',
           heroImage: '/images/photos/golden-puppy-closeup.jpg',
           heroImageAlt: 'Golden retriever puppy resting her chin on the floor, looking up with big brown eyes',
-          trustPoints: ['Built for rescues only', 'Ready in 1-2 weeks', 'Hosting & support included'],
+          trustPoints: ['Built for animal nonprofits only', 'Ready in 1-2 weeks', 'Hosting & support included'],
           stats: [
             { value: '70%+', label: 'of your visitors are on a phone' },
             { value: '<2s', label: 'mobile load time, every site' },
             { value: '1-2 wks', label: 'from kickoff to live site' },
-            { value: '100%', label: 'built for rescues, nothing else' },
+            { value: '100%', label: 'built for animal welfare, nothing else' },
           ],
           problemEyebrow: 'The quiet loss',
           problemTitle: 'Your website is either making introductions — or ending them.',
@@ -37,11 +37,11 @@ export default function WebDesign() {
           ],
           imagine: `It's Saturday morning. A couple searches "adopt a dog near me," finds your rescue, and taps your site. In seconds they see available dogs with real photos, and an "Apply to Adopt" button that just works on their phone. By Sunday, your adoption coordinator is scheduling their meet-and-greet — because your website did the one job it exists to do.`,
           featuresEyebrow: "What's included",
-          featuresTitle: 'Everything your rescue needs. Nothing it doesn\'t.',
-          featuresNote: 'All 9 features included at $97/mo. No paywalls, no "premium" add-ons, no surprises.',
+          featuresTitle: 'Everything your organization needs. Nothing it doesn\'t.',
+          featuresNote: 'All 9 features included at $95/mo. No paywalls, no "premium" add-ons, no surprises.',
           features: [
             { title: 'Mobile-First Design', desc: 'Built for phones first, because that is where most of your adopters are. Every page, button, and form works on a phone screen.' },
-            { title: 'Adoption Applications', desc: 'Forms that actually get completed — simple on mobile, and sent straight to your adoption coordinator.' },
+            { title: 'Applications & Intake Forms', desc: 'Forms that actually get completed — adoption, foster, wildlife intake, sponsorship, volunteer, or appointment requests, routed straight to the person who handles them.' },
             { title: 'SEO Foundation', desc: 'On-page SEO built into every page from day one — title tags, meta descriptions, heading structure, schema markup, and a sitemap submitted to Google so adopters can actually find you.' },
             { title: 'AEO & AI Search Visibility', desc: 'Answer Engine Optimization so your rescue shows up when someone asks ChatGPT, Perplexity, or Google\'s AI Overview "where can I adopt a dog near me." Structured data and content tuned for the way AI reads a page.' },
             { title: 'Events & Volunteer Sign-Up', desc: 'Adoption events, orientations, fundraisers — sign-ups without phone calls or spreadsheets.' },
@@ -57,19 +57,19 @@ export default function WebDesign() {
             metric: '[REAL RESULT — PENDING CONFIRMATION]',
           },
           pricingEyebrow: 'Pricing',
-          pricingTitle: 'Two options. One goal: more adoptions.',
+          pricingTitle: 'Two options. One goal: more people saying yes.',
           plans: [
             {
               name: 'Tailored Website',
-              price: '$97/month',
-              setup: '$2,000 one-time setup fee, waived with 12-month commitment',
+              price: '$95/month',
+              setup: 'Setup fee waived with a 12-month commitment',
               popular: true,
               timeline: 'Ready in 1-2 weeks',
               items: [
-                'Choose from 6 rescue-specific designs',
+                'Choose from 6 animal-nonprofit designs',
                 'Customized with your logo, colors & animals',
                 'Mobile-first responsive design',
-                'Adoption & foster application forms',
+                'Application, intake & sponsorship forms',
                 'SEO foundation (schema, sitemap, meta)',
                 'AEO & AI search visibility setup',
                 'SSL, hosting & daily backups',
@@ -82,15 +82,15 @@ export default function WebDesign() {
             {
               name: 'Custom Website',
               price: 'Custom',
-              setup: 'Starts with a $2,500 deposit applied to your final project price',
+              setup: 'Starts with a deposit applied to your final project price',
               timeline: '8-12 weeks from kickoff to launch',
               items: [
                 'Everything in Tailored, plus:',
                 'Planning session: we map every page before anything is built',
                 'Fully custom design, built from scratch',
-                'Dedicated designer assigned to your rescue',
+                'Dedicated designer assigned to your organization',
                 'Multi-location & chapter architecture',
-                'Advanced integrations (shelter software, CRMs)',
+                'Advanced integrations (shelter & sanctuary software, CRMs)',
                 'Custom functionality (animal search, foster portal)',
                 'Extended content migration',
                 'Priority support & dedicated account manager',
@@ -110,12 +110,12 @@ export default function WebDesign() {
             { q: 'Do you move our existing content?', a: 'Yes. We migrate all content from your main pages at no extra cost, and clean up content that has gotten messy over the years.' },
             { q: 'How is this different from Wix or Squarespace?', a: 'Three things: it is built specifically for rescues (adoption forms, SEO and AEO baked in from day one), a dedicated team handles everything instead of you wrestling a template, and it is designed around one goal — turning visitors into adopters and donors.' },
             { q: 'Do we own the website?', a: 'You own all your content, images, and data. If you ever cancel, we provide a full export so you are never locked in.' },
-            { q: 'How does billing work?', a: 'Tailored websites are billed monthly at $97/mo with a $2,000 one-time setup fee. Commit to 12 months and the setup fee is waived — the option most rescues choose.' },
-            { q: 'We are a tiny foster-based rescue. Is this overkill?', a: 'Not at all. Small rescues benefit the most — you have no building and no foot traffic, so your website IS your front door. The $97/mo plan was built for organizations exactly your size.' },
+            { q: 'How does billing work?', a: 'Tailored websites are billed monthly at $95/mo with a one-time setup fee. Commit to 12 months and the setup fee is waived — the option most rescues choose.' },
+            { q: 'We are a tiny foster-based rescue. Is this overkill?', a: 'Not at all. Small rescues benefit the most — you have no building and no foot traffic, so your website IS your front door. The $95/mo plan was built for organizations exactly your size.' },
             { q: 'Can the site take monthly recurring donations?', a: 'Donation integration can be added as a custom line item — ask us about it during your free eligibility check.' },
           ],
           ctaTitle: 'Tonight, another family will look at your animals online.',
-          ctaSub: 'Will they find a site that lets them say yes? Starting at $97/month, ready in 1-2 weeks.',
+          ctaSub: 'Will they find a site that lets them say yes? Starting at $95/month, ready in 1-2 weeks.',
         }}
       />
       <Footer />

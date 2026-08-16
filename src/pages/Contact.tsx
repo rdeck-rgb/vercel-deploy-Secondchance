@@ -51,7 +51,7 @@ export default function Contact() {
               <div>
                 <Stamp variant="outline" className="mb-4">Get in touch</Stamp>
                 <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-ink font-serif">
-                  Let's talk about your rescue
+                  Let's talk about your organization
                 </h1>
                 <p className="mt-5 text-lg text-ink/65 leading-relaxed">
                   Questions about pricing, the Google Ad Grant, or whether we're the right fit?
@@ -65,11 +65,11 @@ export default function Contact() {
                     </span>
                     305-709-1382
                   </a>
-                  <a href="mailto:mdeck@adgrantconsultant.com" className="flex items-center gap-3 text-ink/80 hover:text-stamp-red transition-colors">
+                  <a href="mailto:mel@click2-ai.com" className="flex items-center gap-3 text-ink/80 hover:text-stamp-red transition-colors">
                     <span className="flex h-10 w-10 items-center justify-center rounded-md bg-forest/10 text-forest">
                       <Mail className="h-5 w-5" />
                     </span>
-                    mdeck@adgrantconsultant.com
+                    mel@click2-ai.com
                   </a>
                   <div className="flex items-center gap-3 text-ink/80">
                     <span className="flex h-10 w-10 items-center justify-center rounded-md bg-forest/10 text-forest">
@@ -115,7 +115,7 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <h2 className="text-xl font-bold text-ink font-serif">Send us a message</h2>
-                    <p className="text-sm text-ink/60">A real person reads every message — we reply within one business day. Prefer email? <a href="mailto:mdeck@adgrantconsultant.com" className="font-bold text-stamp-red hover:underline">mdeck@adgrantconsultant.com</a></p>
+                    <p className="text-sm text-ink/60">A real person reads every message — we reply within one business day. Prefer email? <a href="mailto:mel@click2-ai.com" className="font-bold text-stamp-red hover:underline">mel@click2-ai.com</a></p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="cname" className="block text-sm font-bold text-ink mb-1.5">Name</label>
@@ -123,12 +123,12 @@ export default function Contact() {
                       </div>
                       <div>
                         <label htmlFor="corg" className="block text-sm font-bold text-ink mb-1.5">Rescue / Organization</label>
-                        <input id="corg" required className={inputCls} placeholder="River City Animal Rescue" value={org} onChange={(e) => setOrg(e.target.value)} />
+                        <input id="corg" required className={inputCls} placeholder="River City Animal Sanctuary" value={org} onChange={(e) => setOrg(e.target.value)} />
                       </div>
                     </div>
                     <div>
                       <label htmlFor="cemail" className="block text-sm font-bold text-ink mb-1.5">Email</label>
-                      <input id="cemail" type="email" required className={inputCls} placeholder="you@yourrescue.org" value={email} onChange={(e) => setEmail(e.target.value)} />
+                      <input id="cemail" type="email" required className={inputCls} placeholder="you@yourorg.org" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div>
                       <label htmlFor="ctopic" className="block text-sm font-bold text-ink mb-1.5">What's this about?</label>
@@ -142,7 +142,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="cmsg" className="block text-sm font-bold text-ink mb-1.5">Message</label>
-                      <textarea id="cmsg" rows={4} required className={`${inputCls} resize-none`} placeholder="Tell us a little about your rescue and what you need..." value={msg} onChange={(e) => setMsg(e.target.value)} />
+                      <textarea id="cmsg" rows={4} required className={`${inputCls} resize-none`} placeholder="Tell us a little about your organization and what you need..." value={msg} onChange={(e) => setMsg(e.target.value)} />
                     </div>
                     {/* Honeypot — off-screen so bots fill it, skipped by people and AT. */}
                     <div className={honeypotWrapCls} aria-hidden="true">
@@ -161,8 +161,8 @@ export default function Contact() {
                     {sendError && (
                       <p className="text-sm font-medium text-stamp-red" role="alert">
                         Something went wrong sending that. Please try again, or email{' '}
-                        <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-                          mdeck@adgrantconsultant.com
+                        <a className="underline" href="mailto:mel@click2-ai.com">
+                          mel@click2-ai.com
                         </a>
                         .
                       </p>

@@ -298,7 +298,7 @@ export default function GetStarted() {
               </p>
               <div className="mt-8 space-y-3">
                 <a
-                  href="mailto:mdeck@adgrantconsultant.com"
+                  href="mailto:mel@click2-ai.com"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-stamp-red px-6 py-3 text-sm font-bold text-white shadow-[0_3px_0_rgba(42,31,22,0.12)] hover:bg-stamp-red-dark transition-colors"
                 >
                   <Mail className="h-4 w-4" />
@@ -713,8 +713,8 @@ export default function GetStarted() {
                 {sendError && (
                   <p className="mt-6 text-sm font-medium text-stamp-red" role="alert">
                     Something went wrong sending that. Please try again, or email{' '}
-                    <a className="underline" href="mailto:mdeck@adgrantconsultant.com">
-                      mdeck@adgrantconsultant.com
+                    <a className="underline" href="mailto:mel@click2-ai.com">
+                      mel@click2-ai.com
                     </a>
                     .
                   </p>

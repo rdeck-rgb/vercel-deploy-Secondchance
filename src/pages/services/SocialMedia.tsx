@@ -8,8 +8,8 @@ export default function SocialMedia() {
   return (
     <div className="min-h-screen bg-paper antialiased">
       <PageMeta
-        title="Social Media Management for Animal Rescues — from $497/mo | SecondChance Media"
-        description="Done-for-you social media for animal welfare nonprofits. Pet spotlights, short-form video, branded graphics, and captions every week. Plans from $497/month."
+        title="Social Media Management for Animal Nonprofits — from $495/mo | SecondChance Media"
+        description="Done-for-you social media for rescues, sanctuaries, wildlife rehab, zoos, and nonprofit vet clinics. Animal spotlights, short-form video, branded graphics, and captions every week. Plans from $495/month."
       />
       <SiteHeader />
       <ServicePageTemplate
@@ -19,7 +19,7 @@ export default function SocialMedia() {
           h1a: 'Your animals give you stories every single day.',
           h1b: 'We make sure people actually see them.',
           sub: `A feed that posts every week tells your community you're alive and worth visiting. A feed that stopped in March tells them to keep scrolling. We create and post everything — pet spotlights, foster appeals, happy-tails stories — and teach your team to keep it going, so the knowledge doesn't leave when we do.`,
-          priceNote: 'From $497/month. Facebook + Instagram included.',
+          priceNote: 'From $495/month. Facebook + Instagram included.',
           heroImage: '/images/photos/golden-shoe.jpg',
           heroImagePosition: 'center 25%',
           heroImageAlt: 'Golden retriever lounging on the couch proudly holding a stolen shoe',
@@ -63,8 +63,8 @@ export default function SocialMedia() {
           plans: [
             {
               name: 'Starter',
-              price: '$497/mo',
-              setup: '4 posts/week · $2,000 setup, waived with 12-month plan',
+              price: '$495/mo',
+              setup: '4 posts/week · Setup waived with 12-month plan',
               items: [
                 '3 graphics a week',
                 '1 carousel a week',
@@ -76,8 +76,8 @@ export default function SocialMedia() {
             },
             {
               name: 'Plus',
-              price: '$797/mo',
-              setup: '6 posts/week · $2,000 setup, waived with 12-month plan',
+              price: '$795/mo',
+              setup: '6 posts/week · Setup waived with 12-month plan',
               popular: true,
               items: [
                 '1 short video a week',
@@ -91,8 +91,8 @@ export default function SocialMedia() {
             },
             {
               name: 'Premium',
-              price: '$997/mo',
-              setup: '7 posts/week · $2,000 setup, waived with 12-month plan',
+              price: '$995/mo',
+              setup: '7 posts/week · Setup waived with 12-month plan',
               items: [
                 '2 short videos a week',
                 '1 carousel a week',
@@ -111,12 +111,12 @@ export default function SocialMedia() {
             { n: '03', title: 'We create, post, and teach', desc: 'Videos, graphics, and captions go out every week — and your team learns the rhythm as we go, so it never depends on one person again.' },
           ],
           faqs: [
-            { q: 'How much does it cost?', a: 'Plans are $497 (Starter), $797 (Plus), and $997 (Premium) per month, plus a one-time $2,000 setup fee that is waived on a 12-month plan.' },
+            { q: 'How much does it cost?', a: 'Plans are $495 (Starter), $795 (Plus), and $995 (Premium) per month, plus a one-time setup fee that is waived on a 12-month plan.' },
             { q: 'Do you create the content, or do we have to provide it?', a: 'We create everything: the videos, graphics, carousels, and captions. You send raw photos and footage of your animals when you can — the stuff your team is already capturing — and we handle all production and posting.' },
             { q: 'Which platforms do you cover?', a: 'Facebook and Instagram are included on every plan — that is where adopters and donors are. You can add TikTok or YouTube Shorts for $100/mo each. Stories are included at no extra cost.' },
             { q: 'Should we outsource if we already have a volunteer posting?', a: 'The best setup keeps your volunteer capturing in-the-moment content while our team handles production, design, and scheduling. Your volunteer stops burning out, and your feed never goes quiet.' },
             { q: 'What happens after we sign up?', a: 'About two weeks of setup: a kickoff call about your voice and calendar, your brand kit and templates, a full profile rebuild, and account access sorted. Then your first monthly calendar arrives for approval — nothing publishes until you approve it.' },
-            { q: 'Is there a contract or setup fee?', a: 'Plans run on a 12-month agreement with a one-time $2,000 setup fee, waived on that plan. After the first year you continue month-to-month and can cancel anytime.' },
+            { q: 'Is there a contract or setup fee?', a: 'Plans run on a 12-month agreement with a one-time setup fee, waived on that plan. After the first year you continue month-to-month and can cancel anytime.' },
             { q: 'What results should we honestly expect?', a: 'Steady visibility and trust, not overnight virality. Done consistently, your rescue looks active and worth supporting, adoption spotlights get shared, and donation appeals reach more people every month. The realistic win: a reliable presence you are no longer scrambling to keep up.' },
           ],
           ctaTitle: 'Stop carrying this alone.',
